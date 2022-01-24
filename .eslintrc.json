@@ -1,0 +1,45 @@
+k{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 13
+    },
+    "plugins": [
+        "react",
+		"html"
+    ],
+    "rules": {
+        "indent": [
+            "warn",
+            "tab"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+
+		"no-unused-vars": ["off"],
+		"no-undef": ["off"]
+    },
+	"overrides": [
+		{
+			"files": [ "**/*.jsx", "**/*.tsx", "client/src/**/*.js" ],
+			"parserOptions": { 
+				"sourceType": "module" 
+			}
+		}
+	]
+}
