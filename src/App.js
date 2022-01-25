@@ -1,14 +1,14 @@
+import logo from './logo.svg';
 import './App.css';
-import React from 'react';
-import Server from './Server.jsx';
+
+// import nextui
+import { NextUIProvider, Button } from '@nextui-org/react';
 
 function App() {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<Server />
-			</header>
-		</div>
+		<NextUIProvider>
+			<Button>Hello NextUI!!!</Button>
+		</NextUIProvider>
 	);
 }
 

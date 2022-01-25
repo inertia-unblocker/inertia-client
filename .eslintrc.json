@@ -11,11 +11,11 @@
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": 13
+		"sourceType": "module",
+        "ecmaVersion": 12
     },
     "plugins": [
-        "react",
-		"html"
+        "react"
     ],
     "rules": {
         "indent": [
@@ -33,13 +33,5 @@
 
 		"no-unused-vars": ["off"],
 		"no-undef": ["off"]
-    },
-	"overrides": [
-		{
-			"files": [ "**/*.jsx", "**/*.tsx", "client/src/**/*.js" ],
-			"parserOptions": { 
-				"sourceType": "module" 
-			}
-		}
-	]
+    }
 }
