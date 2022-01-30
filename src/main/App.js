@@ -1,12 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
-
-// import nextui
+import * as React from 'react';
 import { NextUIProvider, Button } from '@nextui-org/react';
+import { darkTheme, lightTheme } from '../theme/theme';
 
 function App() {
 	return (
-		<NextUIProvider>
+		<NextUIProvider theme={darkTheme}>
 			<Button>Hello NextUI!!!</Button>
 		</NextUIProvider>
 	);
