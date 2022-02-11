@@ -1,0 +1,46 @@
+<svg 
+	width="222" 
+	height="202" 
+	viewBox="0 0 222 202" 
+	fill="none" 
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<defs>
+		<linearGradient id="inertiaGradient" gradientTransform="rotate(90)">
+			<stop offset="20%"  stop-color="#f5a623" />
+			<stop offset="80%" stop-color="#f21361" />
+		</linearGradient>
+	</defs>
+
+	<path 
+		d="M136 6C156 56 126 129.5 6 129.5H216L136 6Z" 
+		stroke="url('#inertiaGradient')" 
+		stroke-width="11" 
+		stroke-linejoin="round"
+		fill="url('#inertiaGradient')"
+	/>
+	
+	<path 
+		d="M216 196V148.5H6V196H216Z" 
+		stroke="#555555" 
+		stroke-width="11" 
+		stroke-linejoin="round"
+		fill="#555555"
+	/>
+
+	<ellipse 
+		cx="166.237" 
+		cy="170.599" 
+		rx="9.95261" 
+		ry="10.1604" 
+		fill="#17c964"
+	/>
+	
+	<ellipse 
+		cx="195.597" 
+		cy="170.599" 
+		rx="9.45498"
+		ry="10.1604"
+		fill="#f21361"
+	/>
+</svg>
