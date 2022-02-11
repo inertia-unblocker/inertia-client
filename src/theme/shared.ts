@@ -13,7 +13,8 @@ export const lightTheme = createTheme({
 			backgroundBlur: 'rgba(255, 255, 255, 0.5)',
 			blockLinkColor: '#FF1CF7',
 			blockLinkBackground: '$accents1',
-			blockLinkHoverBackground: '#FFD1ED'
+			blockLinkHoverBackground: '#FFD1ED',
+			gradient: '15deg, $yellow500, $red500'
 		}
 	}
 });
@@ -32,7 +33,8 @@ export const darkTheme = createTheme({
 			blockLinkColor: '#FFA4E3',
 			blockLinkBackground: '$accents1',
 			blockLinkHoverBackground: '#55057A',
-			selection: '$purple700'
+			selection: '$purple700',
+			gradient: '15deg, $yellow500, $red500'
 		}
 	}
 });

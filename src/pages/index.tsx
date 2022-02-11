@@ -1,9 +1,12 @@
-import * as nextUI from '@nextUI-org/react';
 import { ThemeToggle } from '@components/themeToggle';
+import { Navbar } from '@components/navbar';
+import * as nextUI from '@nextui-org/react';
 
 function InertiaMain() {
 	return (
-		<ThemeToggle />
+		<div>
+			<Navbar />
+		</div>
 	);
 }
 

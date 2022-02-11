@@ -1,5 +1,5 @@
 import * as nextThemes from 'next-themes';
-import * as nextUI from '@nextUI-org/react';
+import * as nextUI from '@nextui-org/react';
 
 export const ThemeToggle: React.FC<Partial<nextUI.SwitchProps>> = ({ ...props }) => {
 	const { setTheme } = nextThemes.useTheme();
