@@ -1,23 +1,20 @@
 import * as nextUI from '@nextui-org/react';
 import { ProxyHook } from '@hooks/proxy';
 import tldEnum from 'tld-enum';
-import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import config from '@repoRoot/package.json';
 
 export function URLBar() {
 	const [proxy, _setProxy] = ProxyHook();
+	const router = useRouter();
 
 	function handleURL(url: string) {
-		if (!config.inertiaCfg.proxyLocation.endsWith('/')) throw new Error('Backend URL must end with /');
+		if (config.inertiaCfg.proxyLocation.endsWith('/')) throw new Error('Backend URL must not end with /');
 
 		if (proxy == 'corrosion') {
-			useEffect(() => {
-				window.location.assign(config.inertiaCfg.proxyLocation + 'corrosion/gateway?url=' + url);
-			});
+			router.push(`${config.inertiaCfg.proxyLocation}/corrosion/gateway?url=${url}`);
 		} else {
-			useEffect(() => {
-				window.location.assign(config.inertiaCfg.proxyLocation + 'alloy-gateway?url=' + url);
-			});
+			router.push(`${config.inertiaCfg.proxyLocation}/alloy-gateway?url=${url}`);
 		}
 	}
 	
@@ -64,7 +61,7 @@ export function URLBar() {
 			url = `https://google.com/search?q=${url}`;
 		}
 
-		if (!url.startsWith("https://") || !url.startsWith("http://")) url = 'http://' + url;
+		if (!url.startsWith('https://') || !url.startsWith('http://')) url = 'http://' + url;
 		if (url.endsWith('/')) url = url.substring(0, url.length - 1);
 
 		return url;

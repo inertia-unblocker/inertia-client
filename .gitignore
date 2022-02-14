@@ -129,3 +129,8 @@ yarn-error.log*
 
 .replit
 replit.nix
+
+
+# Next.js
+.next
+out/
