@@ -1658,6 +1658,11 @@ text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
+tld-enum@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/tld-enum/-/tld-enum-2.0.6.tgz#0dd8192946d7198f3307e19c911cb25c9ced697b"
+  integrity sha512-jbbWi5zFzhN516ezGwQi8G0MvXx0SQU2tht9Nm/wWZ2YdZoSl+ZsbSpfDIgoAQ8PecypvqOphhbv14VbW40ozA==
+
 to-regex-range@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/to-regex-range/-/to-regex-range-5.0.1.tgz#1648c44aae7c8d988a326018ed72f5b4dd0392e4"

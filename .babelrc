@@ -8,7 +8,10 @@
 				"alias": {
 					"@components": "./src/components",
 					"@theme": "./src/theme",
-					"@cards": "./src/components/cards"
+					"@cards": "./src/components/cards",
+					"@utils": "./src/utils",
+					"@hooks": "./src/utils/hooks",
+					"@repoRoot": "./"
 				}
 			}
 		]

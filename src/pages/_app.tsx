@@ -2,8 +2,8 @@ import type { AppProps } from 'next/app';
 import * as themes from '@theme/shared';
 import * as nextThemes from 'next-themes';
 import * as nextUI from '@nextui-org/react';
-import { Navbar } from '@components/navbar';
-import { Sidebar } from '@components/sidebar';
+import { Navbar } from '@components/navagation/navbar';
+import { Sidebar } from '@components/navagation/sidebar';
 import Head from 'next/head';
 
 function InertiaGlobal({ Component, pageProps }: AppProps) {

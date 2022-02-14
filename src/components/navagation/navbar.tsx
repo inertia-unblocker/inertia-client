@@ -1,6 +1,5 @@
-import * as nextUI from '@nextui-org/react';
-import { Icons } from './navbar_items/icons';
-import { SiteLink } from './navbar_items/siteLink';
+import { Icons } from '@utils/navbar/icons';
+import { SiteLink } from '@utils/navbar/siteLink';
 
 export function Navbar() {
 	return (

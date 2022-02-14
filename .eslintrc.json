@@ -6,8 +6,7 @@
     },
     "extends": [
         "eslint:recommended",
-		"plugin:react/recommended",
-		"next"
+		"plugin:react/recommended"
     ],
     "parserOptions": {
 		"sourceType": "module",
@@ -32,5 +31,10 @@
 
 		"no-unused-vars": ["off"],
 		"no-undef": ["off"]
-    }
+    },
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	}
 }
