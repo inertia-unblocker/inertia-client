@@ -24,11 +24,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Export
-        run: npm run export
-
       - name: Build
         run: npm run build
+
+      - name: Export
+        run: npm run export
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
