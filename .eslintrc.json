@@ -12,6 +12,7 @@
 		"sourceType": "module",
         "ecmaVersion": 12
     },
+	"ignorePatterns": "next.config.js",
     "plugins": [],
     "rules": {
         "indent": [
