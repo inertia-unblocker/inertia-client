@@ -12,7 +12,6 @@
     "@nextui-org/react": "^1.0.2-beta.3",
     "imagemin-mozjpeg": "^10.0.0",
     "next": "12.0.10",
-    "next-optimized-images": "^2.6.2",
     "next-themes": "^0.0.15",
     "react": "17.0.2",
     "react-dom": "17.0.2",
