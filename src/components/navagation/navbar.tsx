@@ -3,7 +3,7 @@ import { SiteLink } from '@utils/navbar/siteLink';
 
 export function Navbar() {
 	return (
-		<div>
+		<div style={{height: '100px'}}>
 			<div style={{float: 'left', margin: '1em'}}>
 				<SiteLink />
 			</div>	

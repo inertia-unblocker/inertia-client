@@ -2,19 +2,19 @@ import * as nextUI from '@nextui-org/react';
 import { ProxyHook } from '@hooks/proxy';
 import tldEnum from 'tld-enum';
 import { useRouter } from 'next/router';
-import config from '@repoRoot/package.json';
+import config from '@config';
 
 export function URLBar() {
 	const [proxy, _setProxy] = ProxyHook();
 	const router = useRouter();
 
 	function handleURL(url: string) {
-		if (config.inertiaCfg.proxyLocation.endsWith('/')) throw new Error('Backend URL must not end with /');
+		if (config.backendURL.endsWith('/')) throw new Error('Backend URL must not end with /');
 
 		if (proxy == 'corrosion') {
-			router.push(`${config.inertiaCfg.proxyLocation}/corrosion/gateway?url=${url}`);
+			router.push(`${config.backendURL}/corrosion/gateway?url=${url}`);
 		} else {
-			router.push(`${config.inertiaCfg.proxyLocation}/alloy-gateway?url=${url}`);
+			router.push(`${config.backendURL}/alloy-gateway?url=${url}`);
 		}
 	}
 	
@@ -67,5 +67,9 @@ export function URLBar() {
 		return url;
 	}
 
-	return;
+	return (
+		<nextUI.Card css={{width: '70%', marginTop: '3em', marginLeft: '7em', display: 'inline-block'}} hoverable>
+			<nextUI.Input placeholder='Search Google or enter URL' css={{padding: '1em 2em'}} bordered />
+		</nextUI.Card>
+	);
 }

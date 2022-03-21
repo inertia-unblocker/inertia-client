@@ -21,9 +21,9 @@ function InertiaGlobal({ Component, pageProps }: AppProps) {
 					<title>Inertia</title>
 					<link rel='icon' href='/inertia.svg' />
 				</Head>
-				<Navbar />
-				<Component {...pageProps} />	
+				<Navbar />	
 				<Sidebar />
+				<Component {...pageProps} />
 			</nextUI.NextUIProvider>
 		</nextThemes.ThemeProvider>
 	);

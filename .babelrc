@@ -11,7 +11,7 @@
 					"@cards": "./src/components/cards",
 					"@utils": "./src/utils",
 					"@hooks": "./src/utils/hooks",
-					"@repoRoot": "./"
+					"@config": "./src/config/config.json"
 				}
 			}
 		]

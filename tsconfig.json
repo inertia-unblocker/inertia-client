@@ -23,7 +23,7 @@
 			"@utils/*": ["./src/utils/*"],
 			"@cards/*": ["./src/components/cards/*"],
 			"@hooks/*": ["./src/utils/hooks/*"],
-			"@repoRoot/*": ["./*"]
+			"@config": ["./src/config/config.json"]
 		},
 		"strict": false
 	},
