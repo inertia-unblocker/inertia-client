@@ -1,9 +1,22 @@
 /** @type {import('next').NextConfig} */
-const config = require('./src/config/config.json');
+const config = require('./src/config/baseConfig.json');
 
-const nextConfig = {
+module.exports = {
+	webpack: (config, options) => {
+	  config.experiments = {
+		topLevelAwait: true,
+	  };
+	  return config;
+	},
 	basePath: config.prefix,
 	assetPrefix: config.prefix,
-};
 
-module.exports = nextConfig;
+	async rewrites() {
+		return [
+			{
+				source: '/api/:path*',
+				destination: `${config.umamiAPI}/api/:path*`,
+			}
+		]
+	}
+};

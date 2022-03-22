@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "es5",
+		"target": "es2017",
 		"lib": [
 			"dom",
 			"dom.iterable",
@@ -23,7 +23,7 @@
 			"@utils/*": ["./src/utils/*"],
 			"@cards/*": ["./src/components/cards/*"],
 			"@hooks/*": ["./src/utils/hooks/*"],
-			"@config": ["./src/config/config.json"]
+			"@config": ["./src/config/config.tsx"]
 		},
 		"strict": false
 	},

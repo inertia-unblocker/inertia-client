@@ -11,7 +11,7 @@
 					"@cards": "./src/components/cards",
 					"@utils": "./src/utils",
 					"@hooks": "./src/utils/hooks",
-					"@config": "./src/config/config.json"
+					"@config": "./src/config/config.tsx"
 				}
 			}
 		]

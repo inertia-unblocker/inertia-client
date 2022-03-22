@@ -5,10 +5,10 @@ export const ProxySwitch: React.FC<Partial<nextUI.SwitchProps>> = ({ ...props })
 	const [proxy, setProxy] = ProxyHook();
 
 	const handleProxySwitch = () => {
-		setProxy(proxy === 'corrosion' ? 'alloy' : 'corrosion');
+		setProxy(proxy === 'ultraviolet' ? 'alloy' : 'ultraviolet');
 	};
 
 	return (
-		<nextUI.Switch size="xl" checked={proxy === 'corrosion'} onChange={handleProxySwitch} {...props}/>
+		<nextUI.Switch size="xl" checked={proxy === 'ultraviolet'} onChange={handleProxySwitch} {...props}/>
 	);
 };
