@@ -21,7 +21,6 @@
 			"@components/*": ["./src/components/*"],
 			"@theme/*": ["./src/theme/*"],
 			"@utils/*": ["./src/utils/*"],
-			"@cards/*": ["./src/components/cards/*"],
 			"@hooks/*": ["./src/utils/hooks/*"],
 			"@config": ["./src/config/config.tsx"]
 		},

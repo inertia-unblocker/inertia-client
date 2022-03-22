@@ -1,7 +1,7 @@
-import { URLBar } from '@cards/index/URLBar';
-import { Theme } from '@cards/index/theme';
-import { Proxy } from '@cards/index/proxy';
-import { Analytics } from '@cards/index/analytics';
+import { URLBar } from '@components/cards/index/urlbar';
+import { Theme } from '@components/cards/index/theme';
+import { Proxy } from '@components/cards/index/proxy';
+import { Analytics } from '@components/cards/index/analytics';
 
 function InertiaMain() {
 	return (
