@@ -188,7 +188,7 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.1.0.tgz#d27e7e76c87a460a4da99c5bfdb1618dcd6cd064"
   integrity sha512-aBvcbMwuanDH4EMrL2TthNJy+4nP59Bimn8egqv6GHMVj0a44cU6Au4PjOhLNqEh9l+IpRGBqMTzec94UdC5xg==
 
-"@nextui-org/react@^1.0.4-beta.5":
+"@nextui-org/react@^1.0.3-beta.5":
   version "1.0.3-beta.5"
   resolved "https://registry.yarnpkg.com/@nextui-org/react/-/react-1.0.3-beta.5.tgz#490c20af6a334b6e1bdf06dbb601ee48f5c11d4a"
   integrity sha512-Hq1i7soxnNnBLjn4j6zun0vrANByh1qNDKe003vGKf9NDm4/iuk2kcVulD3WknDCxnYv9u0bbszCvVzR9BN3nQ==
