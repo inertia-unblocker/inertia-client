@@ -1,7 +1,7 @@
 {
-	"prefix": "/inertia-client",
+	"prefix": "",
 	"backendURL": "https://inertia.up.railway.app",
-	"umamiAPI": "http://localhost:8081",
+	"umamiAPI": "http://inertia-umami-analytics.up.railway.app",
 	"umamiUsername": "",
 	"umamiPassword": ""
 }

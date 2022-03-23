@@ -129,4 +129,3 @@ replit.nix
 
 # Next.js build output
 .next/*
-!.next/cache
