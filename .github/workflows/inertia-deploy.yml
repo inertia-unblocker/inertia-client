@@ -20,17 +20,20 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      
+      - name: Install yarn
+        run: corepack enable
 
       - name: Install dependencies
-        run: npm install
+        run: yarn install
 
       - name: Build
-        run: npm run build
+        run: yarn build
 
       - name: Export
-        run: npm run export
+        run: yarn export
 
-      - name: nojekyll file
+      - name: Nojekyll
         run: touch out/.nojekyll
 
       - name: Deploy
