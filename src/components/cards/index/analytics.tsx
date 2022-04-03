@@ -91,7 +91,8 @@ export function Analytics() {
 	const [data, setData] = React.useState('');
 
 	const getData = async () => {
-		let rawres = await fetch(config.analyticsDataServer);
+		let tz = new Date().toLocaleTimeString('en-us', {timeZoneName: 'short'}).split(' ')[2];
+		let rawres = await fetch(`${config.analyticsDataServer}?tz=${tz}`);
 		let json = await rawres.json();
 		setData(JSON.stringify(json));
 	};
