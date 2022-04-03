@@ -22,7 +22,7 @@
 			"@theme/*": ["./src/theme/*"],
 			"@utils/*": ["./src/utils/*"],
 			"@hooks/*": ["./src/utils/hooks/*"],
-			"@config": ["./src/config/config.js"]
+			"@config": ["./src/config/config.json"]
 		},
 		"strict": false
 	},
