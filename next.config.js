@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const config = require('./src/config/config');
+const config = require('./src/config/config.json');
 
 module.exports = {
 	webpack: (config, options) => {

@@ -1,5 +1,5 @@
 const fs = require('fs');
-const fileName = './src/config/config.js';
+const fileName = './src/config/config.json';
 const file = require(fileName);
     
 file.prefix = "/inertia-client";

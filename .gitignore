@@ -129,3 +129,6 @@ replit.nix
 
 # Next.js build output
 .next/*
+
+# etc
+gh.config.json
