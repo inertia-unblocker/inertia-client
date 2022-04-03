@@ -124,7 +124,7 @@ export function Analytics() {
 								<nextUI.Table css={{width: '40em'}} bordered>
 									<nextUI.Table.Header>
 										{JSON.parse(data).columns_daily.map((column, index) => 
-											<nextUI.Table.Column key={index+1}>{column.key}</nextUI.Table.Column>
+											<nextUI.Table.Column key={index+1}>{column.label}</nextUI.Table.Column>
 										)}
 									</nextUI.Table.Header>
 									<nextUI.Table.Body>
@@ -143,7 +143,7 @@ export function Analytics() {
 									<nextUI.Table css={{width: '40em'}} bordered>
 										<nextUI.Table.Header>
 											{JSON.parse(data).columns_hourly.map((column, index) => 
-												<nextUI.Table.Column key={index+1}>{column.key}</nextUI.Table.Column>
+												<nextUI.Table.Column key={index+1}>{column.label}</nextUI.Table.Column>
 											)}
 										</nextUI.Table.Header>
 

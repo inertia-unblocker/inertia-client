@@ -13,8 +13,13 @@ export const ServerTable: React.FC<Partial<nextUI.TableProps>> = ({ ...props }) 
 		}
 	};
 
+	let tablecolor: string & ('primary' | 'secondary' | 'success' | 'warning' | 'error' ) = 'primary';
+	if (cookie.proxy == 'ultraviolet') tablecolor = 'secondary';
+	if (cookie.proxy == 'corrosion') tablecolor = 'success';
+	if (cookie.proxy == 'alloy') tablecolor = 'warning';
+
 	return (
-		<nextUI.Table selectionMode='multiple' selectedKeys={cookie.server.toString()} onSelectionChange={(e) => handleServerChange(e.toString())} {...props}>
+		<nextUI.Table selectionMode='multiple' selectedKeys={cookie.server.toString()} onSelectionChange={(e) => handleServerChange(e.toString())} color={tablecolor} {...props}>
 			<nextUI.Table.Header>
 				<nextUI.Table.Column>Server ID</nextUI.Table.Column>
 				<nextUI.Table.Column>Status</nextUI.Table.Column>
