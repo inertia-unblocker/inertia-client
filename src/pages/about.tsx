@@ -1,6 +1,7 @@
+import { AboutCard } from '@components/cards/about/about';
+
 function About() {
-	return <div>About</div>;
+	return <AboutCard />;
 }
   
 export default About;
-  

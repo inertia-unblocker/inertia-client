@@ -1,5 +1,7 @@
+import { CreditsCard } from '@components/cards/credits/credits';
+
 function Credits() {
-	return <div>Credits</div>;
+	return <CreditsCard />;
 }
   
 export default Credits;

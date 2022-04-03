@@ -8,15 +8,16 @@
     "lint": "next lint",
     "export": "next export",
     "update": "yarn upgrade --latest",
-	"gh-pages-config": "node ./.gh-pages-setup.js"
+    "gh-pages-config": "node ./.gh-pages-setup.js"
   },
   "dependencies": {
-    "@nextui-org/react": "^1.0.3-beta.5",
+    "@nextui-org/react": "^1.0.6-beta.5",
     "axios": "^0.26.1",
     "imagemin-mozjpeg": "^10.0.0",
     "next": "^12.1.0",
     "next-themes": "^0.1.1",
     "react": "^17.0.2",
+    "react-cookie": "^4.1.1",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "responsive-loader": "^2.3.0",

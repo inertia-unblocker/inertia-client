@@ -1,10 +1,22 @@
 import * as nextUI from '@nextui-org/react';
-import { ProxySwitch } from '@components/switches/proxySwitch';
+import { ProxyButtonGroup } from '@components/hookedOptions/proxyButtonGroup';
+import { useState } from 'react';
+import { ServerTable } from '@components/hookedOptions/serverTable';
 
 
 export function Proxy() {
+	const [modalVisible, setModalVisible] = useState(false);
+
+	const openHandler = () => {
+		setModalVisible(true);
+	};
+
+	const closeHandler = () => {
+		setModalVisible(false);
+	};
+
 	return (
-		<nextUI.Card css={{width: '18.5em', height: '25em', margin: '2em 0em 0em 1em', display: 'inline-block', verticalAlign: 'top'}} hoverable bordered>
+		<nextUI.Card css={{width: '17.5%', height: '30em', margin: '2em 0em 0em 9.25em', display: 'inline-block', verticalAlign: 'top'}} hoverable bordered>
 			<nextUI.Card.Header>
 				<nextUI.Text css={{userSelect: 'none'}} h2>
 					Proxy
@@ -12,12 +24,27 @@ export function Proxy() {
 			</nextUI.Card.Header>
 			<nextUI.Divider />
 			<nextUI.Card.Body>
-				<nextUI.Text css={{userSelect: 'none', fontSize: '1.5em'}}>
-					Alloy &nbsp;&nbsp;&nbsp;
-					<ProxySwitch size='lg' style={{display: 'inline-block'}} /> &nbsp;&nbsp;&nbsp;
-					Ultraviolet
-				</nextUI.Text>
+				<ProxyButtonGroup />
 			</nextUI.Card.Body>
+			<div style={{marginBottom: '8em'}} />
+			<nextUI.Divider />
+			<nextUI.Card.Footer>
+				<nextUI.Row justify="center">
+					<nextUI.Button css={{width: '100%'}} auto onClick={openHandler}>
+						Change Server
+					</nextUI.Button>
+					<nextUI.Modal closeButton aria-labelledby="modal-title" open={modalVisible} onClose={closeHandler} width={'55em'}>
+						<nextUI.Modal.Header>
+							<nextUI.Text id="modal-title" size={18}>
+								Change Server
+							</nextUI.Text>
+						</nextUI.Modal.Header>
+						<nextUI.Modal.Body>
+							<ServerTable disallowEmptySelection />
+						</nextUI.Modal.Body>
+					</nextUI.Modal>
+				</nextUI.Row>
+			</nextUI.Card.Footer>
 		</nextUI.Card>
 	);
 }

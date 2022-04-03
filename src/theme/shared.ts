@@ -13,6 +13,8 @@ export const darkTheme = createTheme({
 	type: 'dark',
 	theme: {
 		colors: {
+			primary: '#202040',
+			primaryDark: '$primary',
 			selection: '$purple700',
 			gradient: '15deg, $yellow500, $red500'
 		}

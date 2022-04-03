@@ -1,26 +1,33 @@
 import * as nextUI from '@nextui-org/react';
-import { ProxyHook } from '@hooks/proxy';
+import { useCookies } from 'react-cookie';
 import tldEnum from 'tld-enum';
 import { useRouter } from 'next/router';
 import config from '@config';
+import { useState } from 'react';
 
 export function URLBar() {
-	const [proxy, _setProxy] = ProxyHook();
+	const [cookie, setCookie] = useCookies(['proxy', 'server']);
+	const [input, setInput] = useState('');
 	const router = useRouter();
 
 	function handleURL(url: string) {
-		if (config.backendURL.endsWith('/')) throw new Error('Backend URL must not end with /');
-
-		if (proxy == 'corrosion') {
-			router.push(`${config.backendURL}/corrosion/gateway?url=${url}`);
+		console.log(config.servers[cookie.proxy].filter(server => server.hoster == 'Heroku'));
+		let serverURL = config.servers[cookie.proxy].filter(serverData => serverData.id == parseInt(cookie.server))[0].url;
+		
+		if (cookie.proxy == 'ultraviolet') {
+			router.push(`${serverURL}/?url=${url}`);
+		} else if (cookie.proxy == 'corrosion') {
+			router.push(`${serverURL}/corrosion/gateway?url=${url}`);
+		} else if (cookie.proxy == 'alloy') {
+			router.push(`${serverURL}/alloy-gateway?url=${url}`);
 		} else {
-			router.push(`${config.backendURL}/alloy-gateway?url=${url}`);
+			router.push(`https://inertia-server-ultraviolet.herokuapp.com/?url=${url}`);
 		}
 	}
 	
 	function modifyURL(url: string) {
 		let tlds = [];
-		tldEnum.forEach(tld => tlds.push('.' + tld));
+		tldEnum.list.forEach(tld => tlds.push('.' + tld));
 
 		let search = false;
 		for (let i of tlds) {
@@ -61,15 +68,24 @@ export function URLBar() {
 			url = `https://google.com/search?q=${url}`;
 		}
 
-		if (!url.startsWith('https://') || !url.startsWith('http://')) url = 'http://' + url;
+		if (!url.startsWith('https://') && !url.startsWith('http://')) url = 'http://' + url;
 		if (url.endsWith('/')) url = url.substring(0, url.length - 1);
 
 		return url;
 	}
 
+	function handleInput(e) {
+		e.preventDefault();
+		let url = modifyURL(input);
+		handleURL(url);
+	}
+
 	return (
-		<nextUI.Card css={{width: '70%', marginTop: '3em', marginLeft: '7em', display: 'inline-block'}} hoverable>
-			<nextUI.Input placeholder='Search Google or enter URL' css={{padding: '1em 2em'}} bordered />
+		<nextUI.Card css={{width: '75%', marginTop: '3em', marginLeft: '5%', display: 'inline-block'}} hoverable>
+			<form onSubmit={handleInput}>
+				<nextUI.Input placeholder='Search Google or enter URL' css={{padding: '1em 2em', width: '100%'}} onChange={(e) => setInput(e.target.value)} bordered />
+				<nextUI.Input type='submit' css={{display: 'none'}} />
+			</form>
 		</nextUI.Card>
 	);
 }

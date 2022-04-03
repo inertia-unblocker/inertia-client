@@ -7,8 +7,8 @@ function InertiaMain() {
 	return (
 		<>
 			<URLBar />
-			<Theme />
 			<Proxy />
+			<Theme />
 			<Analytics />
 		</>
 	);

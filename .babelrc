@@ -10,7 +10,7 @@
 					"@theme": "./src/theme",
 					"@utils": "./src/utils",
 					"@hooks": "./src/utils/hooks",
-					"@config": "./src/config/config.tsx"
+					"@config": "./src/config/config.js"
 				}
 			}
 		]

@@ -22,7 +22,7 @@
 			"@theme/*": ["./src/theme/*"],
 			"@utils/*": ["./src/utils/*"],
 			"@hooks/*": ["./src/utils/hooks/*"],
-			"@config": ["./src/config/config.tsx"]
+			"@config": ["./src/config/config.js"]
 		},
 		"strict": false
 	},
@@ -30,7 +30,7 @@
 		"next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx"
-	],
+, "src/config/config.js"	],
 	"exclude": [
 		"**/node_modules/**"
 	]
