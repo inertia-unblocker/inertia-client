@@ -20,7 +20,7 @@ export const ServerTable: React.FC<Partial<nextUI.TableProps>> = ({ ...props }) 
 	if (cookie.proxy == 'alloy') tablecolor = 'warning';
 
 	return (
-		<nextUI.Table selectionMode='single' onSelectionChange={(e) => handleServerChange(Array.from(e))} color={tablecolor} {...props}>
+		<nextUI.Table selectionMode='single' defaultSelectedKeys={['1']} onSelectionChange={(e) => handleServerChange(Array.from(e))} color={tablecolor} {...props}>
 			<nextUI.Table.Header>
 				<nextUI.Table.Column>Server ID</nextUI.Table.Column>
 				<nextUI.Table.Column>Status</nextUI.Table.Column>
