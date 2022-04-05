@@ -91,7 +91,7 @@ export function Analytics() {
 	const [data, setData] = React.useState('');
 
 	const getData = async () => {
-		let tz = new Date().toLocaleTimeString('en-us', {timeZoneName: 'short'}).split(' ')[2];
+		let tz = new Intl.DateTimeFormat().resolvedOptions().timeZone;
 		let rawres = await fetch(`${config.analyticsDataServer}?tz=${tz}`);
 		let json = await rawres.json();
 		setData(JSON.stringify(json));
@@ -106,7 +106,7 @@ export function Analytics() {
 	}, [data]);
 
 	return (
-		<nextUI.Card css={{margin: '1em 0em 0em 1em', verticalAlign: 'top', order: '4', width: '57.75%'}} hoverable bordered>
+		<nextUI.Card css={{margin: '2% 0% 0% 1%', verticalAlign: 'top', order: '4', width: '58%'}} hoverable bordered>
 			<nextUI.Card.Header>
 				<nextUI.Text css={{userSelect: 'none'}} h2>
 					Analytics

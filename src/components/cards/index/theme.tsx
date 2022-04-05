@@ -5,7 +5,7 @@ import { FaSun as LightMode, FaMoon as DarkMode } from 'react-icons/fa';
 
 export function Theme() {
 	return (
-		<nextUI.Card css={{height: '25em', margin: '1em 0em 0em 1em', verticalAlign: 'top', order: '2', width: '20%'}} hoverable bordered>
+		<nextUI.Card css={{height: '25em', margin: '2% 0% 0% 1%', verticalAlign: 'top', order: '2', width: '20%'}} hoverable bordered>
 			<nextUI.Card.Header>
 				<nextUI.Text css={{userSelect: 'none'}} h2>
 					Theme

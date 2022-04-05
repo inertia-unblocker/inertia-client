@@ -3,7 +3,7 @@ import config from '@config';
 
 export function Sidebar() {
 	return (
-		<div style={{width: '30%'}}>
+		<div style={{width: '10%'}}>
 			<nextUI.Col>
 				<nextUI.Text size={'1.5em'} css={{color: '#7a7b7c', marginLeft: '1.5em', userSelect: 'none'}}>
 					• &nbsp; &nbsp; <nextUI.Link href={`${config.prefix}/credits`} css={{color: '#7a7b7c'}} underline>Credits</nextUI.Link>

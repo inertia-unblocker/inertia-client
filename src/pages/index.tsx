@@ -5,7 +5,7 @@ import { Analytics } from '@components/cards/index/analytics';
 
 function InertiaMain() {
 	return (
-		<div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: '80%'}}>
+		<div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: '85%', marginLeft: '12%'}}>
 			<URLBar />
 			<Proxy />
 			<Theme />
