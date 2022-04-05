@@ -106,7 +106,7 @@ export function Analytics() {
 	}, [data]);
 
 	return (
-		<nextUI.Card css={{display: 'inline-block', width: '40%', margin: '2em 0em 0em 1em', verticalAlign: 'top'}} hoverable bordered>
+		<nextUI.Card css={{margin: '1em 0em 0em 1em', verticalAlign: 'top', order: '4', width: '57.75%'}} hoverable bordered>
 			<nextUI.Card.Header>
 				<nextUI.Text css={{userSelect: 'none'}} h2>
 					Analytics

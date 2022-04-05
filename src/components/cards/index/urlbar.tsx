@@ -81,7 +81,7 @@ export function URLBar() {
 	}
 
 	return (
-		<nextUI.Card css={{width: '75%', marginTop: '3em', marginLeft: '5%', display: 'inline-block'}} hoverable>
+		<nextUI.Card css={{marginTop: '3em', order: '1', width: '100%'}} hoverable>
 			<form onSubmit={handleInput}>
 				<nextUI.Input placeholder='Search Google or enter URL' css={{padding: '1em 2em', width: '100%'}} onChange={(e) => setInput(e.target.value)} bordered />
 				<nextUI.Input type='submit' css={{display: 'none'}} />

@@ -16,7 +16,7 @@ export function Proxy() {
 	};
 
 	return (
-		<nextUI.Card css={{width: '17.5%', height: '30em', margin: '2em 0em 0em 9.25em', display: 'inline-block', verticalAlign: 'top'}} hoverable bordered>
+		<nextUI.Card css={{height: '30em', margin: '1em 0em 0em 0em', verticalAlign: 'top', order: '2', width: '20%'}} hoverable bordered>
 			<nextUI.Card.Header>
 				<nextUI.Text css={{userSelect: 'none'}} h2>
 					Proxy
