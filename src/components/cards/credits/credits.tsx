@@ -2,7 +2,7 @@ import * as nextUI from '@nextui-org/react';
 
 export function CreditsCard() {
 	return (
-		<nextUI.Card css={{width: '80%', height: '50em', margin: '2em 0em 0em 1em', display: 'inline-block', verticalAlign: 'top'}}>
+		<nextUI.Card css={{width: 'calc(95% - 12em)', height: '50em', margin: '2em 0em 0em 1em', display: 'inline-block', verticalAlign: 'top'}}>
 			<nextUI.Card.Header>
 				<nextUI.Text css={{userSelect: 'none'}} h2>
 					Credits
