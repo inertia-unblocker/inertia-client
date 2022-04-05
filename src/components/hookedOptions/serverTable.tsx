@@ -5,11 +5,12 @@ import { useCookies } from 'react-cookie';
 export const ServerTable: React.FC<Partial<nextUI.TableProps>> = ({ ...props }) => {
 	const [cookie, setCookie] = useCookies();
 
-	const handleServerChange = (server: string) => {
+	const handleServerChange = (server) => {
+		server = server[0];
 		if (server == 'all' || isNaN(parseInt(server))) {
 			setCookie('server', 1);
 		} else {
-			setCookie('server', server);
+			setCookie('server', parseInt(server));
 		}
 	};
 
@@ -19,14 +20,14 @@ export const ServerTable: React.FC<Partial<nextUI.TableProps>> = ({ ...props }) 
 	if (cookie.proxy == 'alloy') tablecolor = 'warning';
 
 	return (
-		<nextUI.Table selectionMode='multiple' selectedKeys={cookie.server.toString()} onSelectionChange={(e) => handleServerChange(e.toString())} color={tablecolor} {...props}>
+		<nextUI.Table selectionMode='single' onSelectionChange={(e) => handleServerChange(Array.from(e))} color={tablecolor} {...props}>
 			<nextUI.Table.Header>
 				<nextUI.Table.Column>Server ID</nextUI.Table.Column>
 				<nextUI.Table.Column>Status</nextUI.Table.Column>
 				<nextUI.Table.Column>Hoster</nextUI.Table.Column>
 				<nextUI.Table.Column>URL</nextUI.Table.Column>
 			</nextUI.Table.Header>
-			<nextUI.Table.Body key="1">
+			<nextUI.Table.Body>
 				{config.servers[cookie.proxy].map((server, index) => 
 					<nextUI.Table.Row key={(index+1).toString()}>
 						<nextUI.Table.Cell>{server.id}</nextUI.Table.Cell>
