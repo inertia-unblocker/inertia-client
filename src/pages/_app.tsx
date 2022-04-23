@@ -32,7 +32,7 @@ function InertiaGlobal({ Component, pageProps }: AppProps) {
 					<title>Inertia</title>
 					<link rel='icon' href='/inertia.svg' />
 				</Head>
-				<Script async defer data-website-id="665a8147-a0b9-4736-95bd-c13613ac232a" src="https://inertia-analytics.vercel.app/umami.js" strategy='beforeInteractive'></Script>
+				<Script async defer data-website-id="e5d2fff6-bf12-47d4-8e32-39ee145cb541" src="https://inertia-analytics.vercel.app/umami.js" strategy='beforeInteractive' />
 				<Navbar />	
 				<Sidebar />
 				<Component {...pageProps} />
