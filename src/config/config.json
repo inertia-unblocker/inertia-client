@@ -5,25 +5,17 @@
 		"ultraviolet": [
 			{
 				"id": 1,
-				"hoster": "Heroku",
+				"hoster": "Azure",
 				"status": "Official",
-				"url": "https://inertia-server-ultraviolet.herokuapp.com"
-			}
-		],
-		"corrosion": [
-			{
-				"id": 1,
-				"hoster": "Heroku",
-				"status": "Official",
-				"url": "https://inertia-server-corrosion.herokuapp.com"
+				"url": "https://iserver-uv.azurewebsites.net"
 			}
 		],
 		"alloy": [
 			{
 				"id": 1,
-				"hoster": "Heroku",
+				"hoster": "Azure",
 				"status": "Official",
-				"url": "https://inertia-server-alloy.herokuapp.com"
+				"url": "https://iserver-alloy.azurewebsites.net"
 			}
 		]
 	}

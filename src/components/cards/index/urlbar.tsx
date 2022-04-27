@@ -11,17 +11,14 @@ export function URLBar() {
 	const router = useRouter();
 
 	function handleURL(url: string) {
-		console.log(config.servers[cookie.proxy].filter(server => server.hoster == 'Heroku'));
 		let serverURL = config.servers[cookie.proxy].filter(serverData => serverData.id == parseInt(cookie.server))[0].url;
 		
 		if (cookie.proxy == 'ultraviolet') {
 			router.push(`${serverURL}/?url=${url}`);
-		} else if (cookie.proxy == 'corrosion') {
-			router.push(`${serverURL}/corrosion/gateway?url=${url}`);
 		} else if (cookie.proxy == 'alloy') {
 			router.push(`${serverURL}/alloy-gateway?url=${url}`);
 		} else {
-			router.push(`https://inertia-server-ultraviolet.herokuapp.com/?url=${url}`);
+			router.push(`${config.servers.ultraviolet[0].url}/?url=${url}`);
 		}
 	}
 	

@@ -12,7 +12,29 @@ export function ChangelogCard() {
 			</nextUI.Card.Header>
 			<nextUI.Divider />
 			<nextUI.Card.Body>
-				<nextUI.Collapse.Group bordered>	
+				<nextUI.Collapse.Group bordered>
+					<nextUI.Collapse title='Frontend App (This one)'>
+						<nextUI.Text css={{userSelect: 'none'}} h4>
+							Inertia Client v1.1.0 Stable
+						</nextUI.Text>
+						<nextUI.Text css={{userSelect: 'none'}}>
+							{bullet} [Added] Inertia Browser								<br />
+							{bullet} [Added] Guides											<br />
+							{bullet} [Fixed] User sees css-less site for a split second		<br />
+							{bullet} [Fixed] Google Search									<br />
+							{bullet} [Removed] Sunsetted Corrosion							<br /><br /><br />
+						</nextUI.Text>
+						<nextUI.Text css={{userSelect: 'none'}} h4>
+							Inertia Client v1.0.0 Stable
+						</nextUI.Text>
+						<nextUI.Text css={{userSelect: 'none'}}>
+							{bullet} [Added] Next.js frontend								<br />
+							{bullet} [Added] New UI with nextUI								<br />
+							{bullet} [Added] User-accessable Analytics						<br />
+							{bullet} [Added] Switch between 3 proxies						<br />
+						</nextUI.Text>
+					</nextUI.Collapse>
+						
 					<nextUI.Collapse title='Backend Server'>
 						<nextUI.Text css={{userSelect: 'none'}} h4>
 							Inertia Server v1.0.0 Stable
@@ -23,18 +45,6 @@ export function ChangelogCard() {
 							{bullet} [Added] Discord login using username and password		<br />
 							{bullet} [Added] OAuth2 Support									<br />
 							{bullet} [Added] Partial GeForceNow Support						<br />
-						</nextUI.Text>
-					</nextUI.Collapse>
-
-					<nextUI.Collapse title='Frontend App (This one)'>
-						<nextUI.Text css={{userSelect: 'none'}} h4>
-							Inertia Client v1.0.0 Stable
-						</nextUI.Text>
-						<nextUI.Text css={{userSelect: 'none'}}>
-							{bullet} [Added] Next.js frontend								<br />
-							{bullet} [Added] New UI with nextUI								<br />
-							{bullet} [Added] User-accessable Analytics						<br />
-							{bullet} [Added] Switch between 3 proxies						<br />
 						</nextUI.Text>
 					</nextUI.Collapse>
 				</nextUI.Collapse.Group>

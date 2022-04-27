@@ -19,6 +19,9 @@ export function CreditsCard() {
 						TheAlphaReturns
 					</nextUI.Link>					<br />
 				
+					&emsp; -&emsp;&emsp;<nextUI.Link href='https://github.com/pg-4919'> 
+						pg_4919
+					</nextUI.Link>					<br />
 				
 					&emsp; -&emsp;&emsp;<nextUI.Link href='https://github.com/Doomcow500'>
 						Doomcow500
@@ -31,10 +34,6 @@ export function CreditsCard() {
 					Special Thanks
 				</nextUI.Text>
 				<nextUI.Text css={{userSelect: 'none'}}>
-					&emsp; -&emsp;&emsp;<nextUI.Link href='https://github.com/pg-4919'> 
-						pg_4919
-					</nextUI.Link>					<br />
-
 					&emsp; -&emsp;&emsp;<nextUI.Link href='https://github.com/titaniumnetwork-dev'>
 						Titaniumnetwork
 					</nextUI.Link>					<br />

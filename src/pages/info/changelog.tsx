@@ -1,4 +1,4 @@
-import { ChangelogCard } from '@components/cards/changelog/changelog';
+import { ChangelogCard } from '@components/cards/info/changelog';
 
 function Changelog() {
 	return <ChangelogCard />;

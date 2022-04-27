@@ -10,6 +10,7 @@
 					"@theme": "./src/theme",
 					"@utils": "./src/utils",
 					"@hooks": "./src/utils/hooks",
+					"@css": "./src/css",
 					"@config": "./src/config/config.json"
 				}
 			}
@@ -17,4 +18,3 @@
 	],
 	"ignore": "**/node_modules/**"
 }
-	

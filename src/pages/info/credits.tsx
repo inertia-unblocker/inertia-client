@@ -1,4 +1,4 @@
-import { CreditsCard } from '@components/cards/credits/credits';
+import { CreditsCard } from '@components/cards/info/credits';
 
 function Credits() {
 	return <CreditsCard />;

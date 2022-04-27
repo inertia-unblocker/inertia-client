@@ -1,5 +1,5 @@
-import { Icons } from '@utils/navbar/icons';
-import { SiteLink } from '@utils/navbar/siteLink';
+import { Icons } from '@components/navagation/navbarItems/icons';
+import { SiteLink } from '@components/navagation/navbarItems/siteLink';
 
 export function Navbar() {
 	return (

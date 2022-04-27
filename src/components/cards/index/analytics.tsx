@@ -1,90 +1,6 @@
 import * as nextUI from '@nextui-org/react';
 import config from '@config';
 import React from 'react';
-import timezones from '@utils/datetime/timezones.json';
-
-function isDST() {
-	const today = new Date();
-	let jan = new Date(today.getFullYear(), 0, 1);
-	let jul = new Date(today.getFullYear(), 6, 1);
-	let offset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-	
-	return today.getTimezoneOffset() < offset;
-}
-
-function convertTimeToTimeZone(time) {
-	time = time.split(':');
-	let hr = time[0];
-	let mi = time[1];
-	let sc = time[2];
-
-	let tz = new Date().toLocaleTimeString('en-us', {timeZoneName:'short'}).split(' ')[2];
-	let offset = 0;
-	let offsetMin = 0;
-
-	for (let i=0; i<timezones.length; i++) {
-		if (timezones[i].abbr == tz) {
-			offset = timezones[i].offset;
-			break;
-		}
-	}
-
-	if (offset.toString().endsWith('.5')) offsetMin = 30;
-	if (offset.toString().endsWith('.75') /* *cough* NEPAL *cough* */) offsetMin = 45;
-	Math.floor(offset);
-
-	if (offset < 0) {
-		hr = parseInt(hr);
-		hr = hr + offset;
-
-		mi = parseInt(mi);
-		mi = mi - offsetMin;
-
-		if (mi < 0) {
-			mi = 60 + mi;
-			hr = hr - 1;
-		}
-		
-		if (hr < 0) {
-			hr = hr + 24;
-		}
-	} else {
-		hr = parseInt(hr);
-		hr = hr + offset;
-
-		mi = parseInt(mi);
-		mi = mi + offsetMin;
-
-		if (mi >= 60) {
-			mi = mi - 60;
-			hr = hr + 1;
-		}
-
-		if (hr >= 24) {
-			hr = hr - 24;
-		}
-	}
-
-	hr = hr.toString();
-	mi = mi.toString();
-	sc = sc.toString();
-
-	if (hr.length == 1) hr = '0' + hr;
-	if (mi.length == 1) mi = '0' + mi;
-	if (sc.length == 1) sc = '0' + sc;
-
-	let ap = '';
-	if (hr > 12) {
-		ap = ' PM';
-		hr = hr - 12;
-	} else if (hr < 12) {
-		ap = ' AM';
-	} else {
-		ap = ' PM';
-	}
-
-	return `${hr}:${mi}${ap}`;
-}
 
 export function Analytics() {
 	const [loading, setLoading] = React.useState(true);
@@ -92,7 +8,47 @@ export function Analytics() {
 
 	const getData = async () => {
 		let tz = new Intl.DateTimeFormat().resolvedOptions().timeZone;
-		let rawres = await fetch(`${config.analyticsDataServer}?tz=${tz}`);
+		let rawres: any = '';
+		try { rawres =  await fetch(`${config.analyticsDataServer}?tz=${tz}`); } catch { 
+			setData(JSON.stringify({
+				columns_daily: [
+					{
+						key: 'name',
+						label: 'Today',
+					},
+					{
+						key: 'value',
+						label: '',
+					}
+				],
+				rows_daily: [
+					{
+						key: '1',
+						name: 'Error',
+						value: 'Could not fetch data',
+					},
+				],
+				columns_hourly: [
+					{
+						key: 'time',
+						label: 'Hourly',
+					},
+					{
+						key: 'value',
+						label: '',
+					}
+				],
+				rows_hourly: [
+					{
+						key: '1',
+						time: 'Error',
+						value: 'Could not fetch data',
+					}
+				]
+			}));
+
+			return;
+		}
 		let json = await rawres.json();
 		setData(JSON.stringify(json));
 	};
@@ -106,7 +62,7 @@ export function Analytics() {
 	}, [data]);
 
 	return (
-		<nextUI.Card css={{margin: '2% 0% 0% 1%', verticalAlign: 'top', order: '4', width: '58%'}} hoverable bordered>
+		<nextUI.Card css={{margin: '2% 0% 0% 1%', verticalAlign: 'top', order: '4', width: '58%', minHeight: '35em'}} hoverable bordered>
 			<nextUI.Card.Header>
 				<nextUI.Text css={{userSelect: 'none'}} h2>
 					Analytics
