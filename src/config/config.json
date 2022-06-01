@@ -8,6 +8,12 @@
 				"hoster": "Azure",
 				"status": "Official",
 				"url": "https://iserver-uv.azurewebsites.net"
+			},
+			{
+				"id": 2,
+				"hoster": "Railway",
+				"status": "Official",
+				"url": "https://is-uv.up.railway.app"
 			}
 		],
 		"alloy": [
@@ -16,6 +22,12 @@
 				"hoster": "Azure",
 				"status": "Official",
 				"url": "https://iserver-alloy.azurewebsites.net"
+			},
+			{
+				"id": 2,
+				"hoster": "Railway",
+				"status": "Official",
+				"url": "https://is-al.up.railway.app"
 			}
 		]
 	}
