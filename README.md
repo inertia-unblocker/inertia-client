@@ -13,7 +13,7 @@ This is the future frontend for Inertia which will be used in the next update.
 
 You can currently find this project on
 
-- https://inertia-ub.vercel.app
+- https://inertia-unblocker.vercel.app
 
 ## NextUI?
 
