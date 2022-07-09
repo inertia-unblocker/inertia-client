@@ -1,22 +1,4 @@
 {
 	"prefix": "",
-	"analyticsDataServer": "https://analytics-requester-production.up.railway.app/getData",
-	"servers": {
-		"ultraviolet": [
-			{
-				"id": 1,
-				"hoster": "Azure",
-				"status": "Official",
-				"url": "https://iserver-uv.azurewebsites.net"
-			}
-		],
-		"alloy": [
-			{
-				"id": 1,
-				"hoster": "Azure",
-				"status": "Official",
-				"url": "https://iserver-alloy.azurewebsites.net"
-			}
-		]
-	}
+	"analyticsDataServer": "https://analytics-requester-production.up.railway.app/getData"
 }

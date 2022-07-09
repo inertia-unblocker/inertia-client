@@ -13,7 +13,7 @@
         "ecmaVersion": 12
     },
 	"ignorePatterns": "next.config.js",
-    "plugins": [],
+    "plugins": ["react"],
     "rules": {
         "indent": [
             "warn",
@@ -30,6 +30,12 @@
 
 		"no-unused-vars": ["off"],
 		"no-undef": ["off"],
-		"no-constant-condition": ["off"]
+		"no-constant-condition": ["off"],
+		"no-self-assign": ["off"],
+		"react/jsx-sort-props": ["warn", {
+			"shorthandLast": true,
+			"noSortAlphabetically": false,
+			"reservedFirst": true
+		}]
     }
 }

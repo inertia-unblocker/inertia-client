@@ -10,7 +10,7 @@ export function ContactCard() {
 			</nextUI.Card.Header>
 			<nextUI.Divider />
 			<nextUI.Card.Body>
-				<nextUI.Text h3 css={{userSelect: 'none'}}>
+				<nextUI.Text css={{userSelect: 'none'}} h3>
 					GitHub Issues
 				</nextUI.Text>
 				
@@ -22,7 +22,7 @@ export function ContactCard() {
 					<br />
 				</nextUI.Text>
 
-				<nextUI.Text h3 css={{userSelect: 'none'}}>
+				<nextUI.Text css={{userSelect: 'none'}} h3>
 					Email
 				</nextUI.Text>
 				<br />

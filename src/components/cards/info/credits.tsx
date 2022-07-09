@@ -10,7 +10,7 @@ export function CreditsCard() {
 			</nextUI.Card.Header>
 			<nextUI.Divider />
 			<nextUI.Card.Body>
-				<nextUI.Text h3 css={{userSelect: 'none'}}>
+				<nextUI.Text css={{userSelect: 'none'}} h3>
 					Inertia Development Team
 				</nextUI.Text>
 				
@@ -30,7 +30,7 @@ export function CreditsCard() {
 
 				
 				
-				<nextUI.Text h3 css={{userSelect: 'none'}}>
+				<nextUI.Text css={{userSelect: 'none'}} h3>
 					Special Thanks
 				</nextUI.Text>
 				<nextUI.Text css={{userSelect: 'none'}}>

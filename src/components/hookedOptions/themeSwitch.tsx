@@ -1,10 +1,10 @@
 import * as nextUI from '@nextui-org/react';
-import useTheme from '@utils/hooks/theme';
+import useTheme from '@utils/theme';
 
 export const ThemeSwitch: React.FC<Partial<nextUI.SwitchProps>> = ({ ...props }) => {
 	const [isDark, handleThemeSwitch] = useTheme();
-  
+
 	return (
-		<nextUI.Switch size='xl' checked={isDark} onChange={handleThemeSwitch} {...props}/>
+		<nextUI.Switch checked={isDark} onChange={handleThemeSwitch} size='xl' {...props} />
 	);
 };

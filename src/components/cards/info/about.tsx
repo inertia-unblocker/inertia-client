@@ -10,7 +10,7 @@ export function AboutCard() {
 			</nextUI.Card.Header>
 			<nextUI.Divider />
 			<nextUI.Card.Body>
-				<nextUI.Text h3 css={{userSelect: 'none'}}>
+				<nextUI.Text css={{userSelect: 'none'}} h3>
 					A history
 				</nextUI.Text>
 				
@@ -31,7 +31,7 @@ export function AboutCard() {
 					<br />
 				</nextUI.Text>
 
-				<nextUI.Text h3 css={{userSelect: 'none'}}>
+				<nextUI.Text css={{userSelect: 'none'}} h3>
 					This version
 				</nextUI.Text>
 				<br />

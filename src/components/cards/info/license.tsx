@@ -11,7 +11,7 @@ export function LicenseCard() {
 			<nextUI.Divider />
 			<nextUI.Card.Body>
 				<nextUI.Text>
-					<nextUI.Text h3 css={{textAlign: 'center'}}>GNU GENERAL PUBLIC LICENSE</nextUI.Text>
+					<nextUI.Text css={{textAlign: 'center'}} h3>GNU GENERAL PUBLIC LICENSE</nextUI.Text>
 					<nextUI.Text css={{textAlign: 'center'}}>Version 3, 29 June 2007</nextUI.Text>
 
 					<br /><nextUI.Text>Copyright &copy; 2007 Free Software Foundation, Inc.
@@ -19,7 +19,7 @@ export function LicenseCard() {
 					Everyone is permitted to copy and distribute verbatim copies
 					of this license document, but changing it is not allowed.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h4 id="preamble">Preamble</nextUI.Text>
+					<br /><br /><nextUI.Text id="preamble" h4>Preamble</nextUI.Text>
 
 					<nextUI.Text>The GNU General Public License is a free, copyleft license for
 					software and other kinds of works.</nextUI.Text>
@@ -82,8 +82,8 @@ export function LicenseCard() {
 					<br /><nextUI.Text>The precise terms and conditions for copying, distribution and
 					modification follow.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h4 id="terms">TERMS AND CONDITIONS</nextUI.Text>
-					<nextUI.Text h5 id="section0">0. Definitions.</nextUI.Text>
+					<br /><br /><nextUI.Text id="terms" h4>TERMS AND CONDITIONS</nextUI.Text>
+					<nextUI.Text id="section0" h5>0. Definitions.</nextUI.Text>
 					<nextUI.Text>&ldquo;This License&rdquo; refers to version 3 of the GNU General Public License.</nextUI.Text>
 
 					<br /><nextUI.Text>&ldquo;Copyright&rdquo; also means copyright-like laws that apply to other kinds of
@@ -121,7 +121,7 @@ export function LicenseCard() {
 					the interface presents a list of user commands or options, such as a
 					menu, a prominent item in the list meets this criterion.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section1">1. Source Code.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section1" h5>1. Source Code.</nextUI.Text>
 					<nextUI.Text>The &ldquo;source code&rdquo; for a work means the preferred form of the work
 					for making modifications to it.  &ldquo;Object code&rdquo; means any non-source
 					form of a work.</nextUI.Text>
@@ -162,7 +162,7 @@ export function LicenseCard() {
 					<br /><nextUI.Text>The Corresponding Source for a work in source code form is that
 					same work.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section2">2. Basic Permissions.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section2" h5>2. Basic Permissions.</nextUI.Text>
 					<nextUI.Text>All rights granted under this License are granted for the term of
 					copyright on the Program, and are irrevocable provided the stated
 					conditions are met.  This License explicitly affirms your unlimited
@@ -186,7 +186,7 @@ export function LicenseCard() {
 					the conditions stated below.  Sublicensing is not allowed; section 10
 					makes it unnecessary.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section3">3. Protecting Users&apos; Legal Rights From Anti-Circumvention Law.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section3" h5>3. Protecting Users&apos; Legal Rights From Anti-Circumvention Law.</nextUI.Text>
 					<nextUI.Text>No covered work shall be deemed part of an effective technological
 					measure under any applicable law fulfilling obligations under article
 					11 of the WIPO copyright treaty adopted on 20 December 1996, or
@@ -201,7 +201,7 @@ export function LicenseCard() {
 					users, your or third parties&apos; legal rights to forbid circumvention of
 					technological measures.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section4">4. Conveying Verbatim Copies.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section4" h5>4. Conveying Verbatim Copies.</nextUI.Text>
 					<nextUI.Text>You may convey verbatim copies of the Program&apos;s source code as you
 					receive it, in any medium, provided that you conspicuously and
 					appropriately publish on each copy an appropriate copyright notice;
@@ -213,7 +213,7 @@ export function LicenseCard() {
 					<br /><nextUI.Text>You may charge any price or no price for each copy that you convey,
 					and you may offer support or warranty protection for a fee.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section5">5. Conveying Modified Source Versions.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section5" h5>5. Conveying Modified Source Versions.</nextUI.Text>
 					<nextUI.Text>You may convey a work based on the Program, or the modifications to
 					produce it from the Program, in the form of source code under the
 					terms of section 4, provided that you also meet all of these conditions:</nextUI.Text>
@@ -251,7 +251,7 @@ export function LicenseCard() {
 					in an aggregate does not cause this License to apply to the other
 					parts of the aggregate.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section6">6. Conveying Non-Source Forms.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section6" h5>6. Conveying Non-Source Forms.</nextUI.Text>
 					<nextUI.Text>You may convey a covered work in object code form under the terms
 					of sections 4 and 5, provided that you also convey the
 					machine-readable Corresponding Source under the terms of this License,
@@ -350,7 +350,7 @@ export function LicenseCard() {
 					source code form), and must require no special password or key for
 					unpacking, reading or copying.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section7">7. Additional Terms.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section7" h5>7. Additional Terms.</nextUI.Text>
 					<nextUI.Text>&ldquo;Additional permissions&rdquo; are terms that supplement the terms of this
 					License by making exceptions from one or more of its conditions.
 					Additional permissions that are applicable to the entire Program shall
@@ -415,7 +415,7 @@ export function LicenseCard() {
 					form of a separately written license, or stated as exceptions;
 					the above requirements apply either way.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section8">8. Termination.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section8" h5>8. Termination.</nextUI.Text>
 					<nextUI.Text>You may not propagate or modify a covered work except as expressly
 					provided under this License.  Any attempt otherwise to propagate or
 					modify it is void, and will automatically terminate your rights under
@@ -442,7 +442,7 @@ export function LicenseCard() {
 					reinstated, you do not qualify to receive new licenses for the same
 					material under section 10.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section9">9. Acceptance Not Required for Having Copies.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section9" h5>9. Acceptance Not Required for Having Copies.</nextUI.Text>
 					<nextUI.Text>You are not required to accept this License in order to receive or
 					run a copy of the Program.  Ancillary propagation of a covered work
 					occurring solely as a consequence of using peer-to-peer transmission
@@ -452,7 +452,7 @@ export function LicenseCard() {
 					not accept this License.  Therefore, by modifying or propagating a
 					covered work, you indicate your acceptance of this License to do so.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section10">10. Automatic Licensing of Downstream Recipients.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section10" h5>10. Automatic Licensing of Downstream Recipients.</nextUI.Text>
 					<nextUI.Text>Each time you convey a covered work, the recipient automatically
 					receives a license from the original licensors, to run, modify and
 					propagate that work, subject to this License.  You are not responsible
@@ -476,7 +476,7 @@ export function LicenseCard() {
 					any patent claim is infringed by making, using, selling, offering for
 					sale, or importing the Program or any portion of it.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section11">11. Patents.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section11" h5>11. Patents.</nextUI.Text>
 					<nextUI.Text>A &ldquo;contributor&rdquo; is a copyright holder who authorizes use under this
 					License of the Program or a work on which the Program is based.  The
 					work thus licensed is called the contributor&apos;s &ldquo;contributor version&rdquo;.</nextUI.Text>
@@ -544,7 +544,7 @@ export function LicenseCard() {
 					any implied license or other defenses to infringement that may
 					otherwise be available to you under applicable patent law.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section12">12. No Surrender of Others&apos; Freedom.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section12" h5>12. No Surrender of Others&apos; Freedom.</nextUI.Text>
 					<nextUI.Text>If conditions are imposed on you (whether by court order, agreement or
 					otherwise) that contradict the conditions of this License, they do not
 					excuse you from the conditions of this License.  If you cannot convey a
@@ -555,7 +555,7 @@ export function LicenseCard() {
 					the Program, the only way you could satisfy both those terms and this
 					License would be to refrain entirely from conveying the Program.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section13">13. Use with the GNU Affero General Public License.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section13" h5>13. Use with the GNU Affero General Public License.</nextUI.Text>
 					<nextUI.Text>Notwithstanding any other provision of this License, you have
 					permission to link or combine any covered work with a work licensed
 					under version 3 of the GNU Affero General Public License into a single
@@ -565,7 +565,7 @@ export function LicenseCard() {
 					section 13, concerning interaction through a network will apply to the
 					combination as such.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section14">14. Revised Versions of this License.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section14" h5>14. Revised Versions of this License.</nextUI.Text>
 					<nextUI.Text>The Free Software Foundation may publish revised and/or new versions of
 					the GNU General Public License from time to time.  Such new versions will
 					be similar in spirit to the present version, but may differ in detail to
@@ -590,7 +590,7 @@ export function LicenseCard() {
 					author or copyright holder as a result of your choosing to follow a
 					later version.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section15">15. Disclaimer of Warranty.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section15" h5>15. Disclaimer of Warranty.</nextUI.Text>
 					<nextUI.Text>THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
 					APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
 					HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM &ldquo;AS IS&rdquo; WITHOUT WARRANTY
@@ -600,7 +600,7 @@ export function LicenseCard() {
 					IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
 					ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section16">16. Limitation of Liability.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section16" h5>16. Limitation of Liability.</nextUI.Text>
 					<nextUI.Text>IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
 					WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
 					THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
@@ -611,7 +611,7 @@ export function LicenseCard() {
 					EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
 					SUCH DAMAGES.</nextUI.Text>
 
-					<br /><br /><nextUI.Text h5 id="section17">17. Interpretation of Sections 15 and 16.</nextUI.Text>
+					<br /><br /><nextUI.Text id="section17" h5>17. Interpretation of Sections 15 and 16.</nextUI.Text>
 					<nextUI.Text>If the disclaimer of warranty and limitation of liability provided
 					above cannot be given local legal effect according to their terms,
 					reviewing courts shall apply local law that most closely approximates
@@ -621,7 +621,7 @@ export function LicenseCard() {
 
 					<br /><nextUI.Text>END OF TERMS AND CONDITIONS</nextUI.Text>
 
-					<br /><br /><nextUI.Text h4 id="howto">How to Apply These Terms to Your New Programs</nextUI.Text>
+					<br /><br /><nextUI.Text id="howto" h4>How to Apply These Terms to Your New Programs</nextUI.Text>
 					<nextUI.Text>If you develop a new program, and you want it to be of the greatest
 					possible use to the public, the best way to achieve this is to make it
 					free software which everyone can redistribute and change under these terms.</nextUI.Text>

@@ -10,8 +10,8 @@ export function Sidebar() {
 	function BackButton() {
 		return (
 			<nextUI.Col>
-				<nextUI.Text size={'1.5em'} css={{color: '#7a7b7c', marginLeft: '1.5em', userSelect: 'none'}}>
-					<nextUI.Link href={`${config.prefix}/`} css={{color: '#7a7b7c'}} underline><BsChevronDoubleLeft /></nextUI.Link>
+				<nextUI.Text css={{color: '#7a7b7c', marginLeft: '1.5em', userSelect: 'none'}} size={'1.5em'}>
+					<nextUI.Link css={{color: '#7a7b7c'}} href={`${config.prefix}/`} underline><BsChevronDoubleLeft /></nextUI.Link>
 				</nextUI.Text>
 			</nextUI.Col>
 		);
@@ -20,8 +20,8 @@ export function Sidebar() {
 	function PageLink({ url, name }) {
 		return (
 			<nextUI.Col>
-				<nextUI.Text size={'1.5em'} css={{color: '#7a7b7c', marginLeft: '1.5em', userSelect: 'none'}}>
-					• &nbsp; &nbsp; <nextUI.Link href={url} css={{color: '#7a7b7c'}} underline>{name}</nextUI.Link>
+				<nextUI.Text css={{color: '#7a7b7c', marginLeft: '1.5em', userSelect: 'none'}} size={'1.5em'}>
+					• &nbsp; &nbsp; <nextUI.Link css={{color: '#7a7b7c'}} href={url} underline>{name}</nextUI.Link>
 				</nextUI.Text>
 			</nextUI.Col>
 		);
@@ -36,7 +36,7 @@ export function Sidebar() {
 					<div style={{width: '15em'}}>
 						<BackButton />
 						{tree[key].subpages.map((page, index) => {
-							return ( <PageLink key={index} url={page.url} name={page.title} /> );
+							return ( <PageLink key={index} name={page.title} url={page.url} /> );
 						})}
 					</div>
 				);

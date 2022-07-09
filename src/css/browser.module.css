@@ -44,3 +44,12 @@
     margin: 0;
     padding: 0;
 }
+
+.hoverableTab:hover {
+	background-color: #282828;
+}
+
+.hoverableTab {
+	background-color: transparent;
+	transition: all .3s ease;
+}

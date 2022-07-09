@@ -6,14 +6,14 @@ export function Icons() {
 		<nextUI.Grid.Container gap={2}>
 			<nextUI.Grid>
 				<nextUI.Tooltip content='Discord'>
-					<nextUI.Link href='https://discord.gg/r28EPhaMSx' css={{color: '$text'}}>
+					<nextUI.Link css={{color: '$text'}} href='https://discord.gg/r28EPhaMSx'>
 						<DiscordIcon size={'1.5em'} />
 					</nextUI.Link>
 				</nextUI.Tooltip>
 			</nextUI.Grid>
 			<nextUI.Grid>
 				<nextUI.Tooltip content='GitHub'>
-					<nextUI.Link href='https://github.com/inertia-unblocker/' css={{color: '$text'}}>
+					<nextUI.Link css={{color: '$text'}} href='https://github.com/inertia-unblocker/'>
 						<GithubIcon size={'1.5em'} />
 					</nextUI.Link>
 				</nextUI.Tooltip>

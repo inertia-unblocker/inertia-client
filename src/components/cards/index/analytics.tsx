@@ -9,7 +9,7 @@ export function Analytics() {
 	const getData = async () => {
 		let tz = new Intl.DateTimeFormat().resolvedOptions().timeZone;
 		let rawres: any = '';
-		try { rawres =  await fetch(`${config.analyticsDataServer}?tz=${tz}`); } catch { 
+		try { rawres = await fetch(`${config.analyticsDataServer}?tz=${tz}`); } catch {
 			setData(JSON.stringify({
 				columns_daily: [
 					{
@@ -62,30 +62,30 @@ export function Analytics() {
 	}, [data]);
 
 	return (
-		<nextUI.Card css={{margin: '2% 0% 0% 1%', verticalAlign: 'top', order: '4', width: '58%', minHeight: '35em'}} hoverable bordered>
+		<nextUI.Card css={{ margin: '2% 0% 0% 1%', verticalAlign: 'top', order: '4', width: '58%' }} variant='bordered' isHoverable>
 			<nextUI.Card.Header>
-				<nextUI.Text css={{userSelect: 'none'}} h2>
+				<nextUI.Text css={{ userSelect: 'none' }} h2>
 					Analytics
 				</nextUI.Text>
 			</nextUI.Card.Header>
-			
+
 			<nextUI.Divider />
 
 			<nextUI.Card.Body>
-				{	
+				{
 					loading ? (
 						<nextUI.Loading />
 					) : (
 						<>
 							<div>
-								<nextUI.Table css={{width: '40em'}} bordered>
+								<nextUI.Table css={{ width: '40em' }} bordered>
 									<nextUI.Table.Header>
-										{JSON.parse(data).columns_daily.map((column, index) => 
-											<nextUI.Table.Column key={index+1}>{column.label}</nextUI.Table.Column>
+										{JSON.parse(data).columns_daily.map((column, index) =>
+											<nextUI.Table.Column key={index + 1}>{column.label}</nextUI.Table.Column>
 										)}
 									</nextUI.Table.Header>
 									<nextUI.Table.Body>
-										{JSON.parse(data).rows_daily.map((row) => 
+										{JSON.parse(data).rows_daily.map((row) =>
 											<nextUI.Table.Row key={row.key}>
 												<nextUI.Table.Cell>{row.name}</nextUI.Table.Cell>
 												<nextUI.Table.Cell>{row.value}</nextUI.Table.Cell>
@@ -94,18 +94,18 @@ export function Analytics() {
 									</nextUI.Table.Body>
 								</nextUI.Table>
 							</div>
-							
+
 							{(JSON.parse(data).rows_hourly.length > 0) ? (
-								<div style={{marginTop: '1em'}}>
-									<nextUI.Table css={{width: '40em'}} bordered>
+								<div style={{ marginTop: '1em' }}>
+									<nextUI.Table css={{ width: '40em' }} bordered>
 										<nextUI.Table.Header>
-											{JSON.parse(data).columns_hourly.map((column, index) => 
-												<nextUI.Table.Column key={index+1}>{column.label}</nextUI.Table.Column>
+											{JSON.parse(data).columns_hourly.map((column, index) =>
+												<nextUI.Table.Column key={index + 1}>{column.label}</nextUI.Table.Column>
 											)}
 										</nextUI.Table.Header>
 
 										<nextUI.Table.Body items={JSON.parse(data).rows_hourly}>
-											{JSON.parse(data).rows_hourly.map((row) => 
+											{JSON.parse(data).rows_hourly.map((row) =>
 												<nextUI.Table.Row key={row.key}>
 													<nextUI.Table.Cell>{row.time}</nextUI.Table.Cell>
 													<nextUI.Table.Cell>{row.value}</nextUI.Table.Cell>
