@@ -2,6 +2,7 @@ import * as nextUI from '@nextui-org/react';
 import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { agreeURL } from '@utils/agreeURL';
 
 export function URLBar() {
 	const [cookie, _setCookie] = useCookies(['proxyLocation', 'externalProxyURL', 'externalProxyType']);
@@ -19,18 +20,6 @@ export function URLBar() {
 				router.push(`${cookie.externalProxyURL}/alloy-gateway?url=${url}`);
 			}
 		}
-	};
-
-	const agreeURL = (url: string) => {
-		let agreedURL;
-
-		try {
-			agreedURL = new URL(url);
-		} catch {
-			agreedURL = new URL(`https://www.google.com/search?q=${url}`);
-		}
-
-		return agreedURL;
 	};
 
 	const handleInput = (e) => {

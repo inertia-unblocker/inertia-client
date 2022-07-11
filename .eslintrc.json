@@ -1,41 +1,56 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "node": true
-    },
-    "extends": [
-        "eslint:recommended",
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"node": true
+	},
+	"extends": [
+		"eslint:recommended",
 		"next/core-web-vitals"
-    ],
-    "parserOptions": {
+	],
+	"parserOptions": {
 		"sourceType": "module",
-        "ecmaVersion": 12
-    },
+		"ecmaVersion": 12
+	},
 	"ignorePatterns": "next.config.js",
-    "plugins": ["react"],
-    "rules": {
-        "indent": [
-            "warn",
-            "tab"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-
-		"no-unused-vars": ["off"],
-		"no-undef": ["off"],
-		"no-constant-condition": ["off"],
-		"no-self-assign": ["off"],
-		"react/jsx-sort-props": ["warn", {
-			"shorthandLast": true,
-			"noSortAlphabetically": false,
-			"reservedFirst": true
-		}]
-    }
+	"plugins": [
+		"react"
+	],
+	"rules": {
+		"indent": [
+			"warn",
+			"tab"
+		],
+		"quotes": [
+			"error",
+			"single"
+		],
+		"semi": [
+			"error",
+			"always"
+		],
+		"no-unused-vars": [
+			"off"
+		],
+		"no-undef": [
+			"off"
+		],
+		"no-constant-condition": [
+			"off"
+		],
+		"no-self-assign": [
+			"off"
+		],
+		"react/jsx-sort-props": [
+			"warn",
+			{
+				"shorthandLast": true,
+				"noSortAlphabetically": false,
+				"reservedFirst": true
+			}
+		],
+		"no-empty": [
+			"off"
+		]
+	}
 }

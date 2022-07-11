@@ -12,8 +12,8 @@ import '@css/global.css';
 import { useEffect } from 'react';
 import App from 'next/app';
 
-function InertiaGlobal({ Component, pageProps, cookies }) {
-	const [cookie, setCookie] = useCookies(['proxyLocation', 'externalProxyType', 'externalProxyURL']);
+function InertiaGlobal({ Component, pageProps, cookies, host }) {
+	const [cookie, setCookie] = useCookies(['proxyLocation', 'externalProxyType', 'externalProxyURL', 'host']);
 	const pathname = useRouter().pathname;
 	const barePages = ['/browser'];
 	const isBrowser = typeof window !== 'undefined';
@@ -22,6 +22,7 @@ function InertiaGlobal({ Component, pageProps, cookies }) {
 	if (!cookie.proxyLocation) setCookie('proxyLocation', 'internal');
 	if (cookie.proxyLocation === 'external' && !cookie.externalProxyType) setCookie('externalProxyType', 'ultraviolet');
 	if (cookie.proxyLocation === 'external' && !cookie.externalProxyURL) setCookie('externalProxyURL', 'https://is-uv.up.railway.app');
+	setCookie('host', host);
 
 	// overlay until site fully loads
 	useEffect(() => {
@@ -75,7 +76,8 @@ function InertiaGlobal({ Component, pageProps, cookies }) {
 
 InertiaGlobal.getInitialProps = async (appContext: AppContext) => {
 	const appProps = await App.getInitialProps(appContext);
-	return { ...appProps, cookies: appContext.ctx.req?.headers?.cookie };
+	const { req } = appContext.ctx;
+	return { ...appProps, cookies: appContext.ctx.req?.headers?.cookie, host: req?.headers?.host };
 };
 
 export default InertiaGlobal;
