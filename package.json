@@ -3,12 +3,13 @@
 	"private": false,
 	"scripts": {
 		"dev": "next dev",
-		"build": "next build",
+		"build": "node ./build.js",
+		"build:vercel": "node ./build.js vercel",
+		"build:github": "node ./build.js github",
 		"start": "next start",
 		"lint": "next lint",
 		"export": "next export",
-		"update": "yarn upgrade --latest",
-		"gh-pages-config": "node ./.gh-pages-setup.js"
+		"update": "yarn upgrade --latest"
 	},
 	"dependencies": {
 		"@nextui-org/react": "^1.0.0-beta.9",

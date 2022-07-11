@@ -24,14 +24,11 @@ jobs:
       - name: Install yarn
         run: corepack enable
 
-      - name: Config (Prefix)
-        run: yarn run gh-pages-config
-
       - name: Install dependencies
         run: yarn install
 
       - name: Build
-        run: yarn build
+        run: yarn build:github
 
       - name: Export
         run: yarn export
