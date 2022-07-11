@@ -3,9 +3,8 @@
 	"private": false,
 	"scripts": {
 		"dev": "next dev",
-		"build": "node ./build.js",
-		"build:vercel": "node ./build.js vercel",
-		"build:github": "node ./build.js github",
+		"build": "next build",
+		"build:github": "node ./.gh-builder.js",
 		"start": "next start",
 		"lint": "next lint",
 		"export": "next export",
