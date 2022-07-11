@@ -144,6 +144,7 @@ export function InertiaBrowser() {
 		setTabs(tabsCopy);
 	}
 
+	const protocol = cookie.host.includes('localhost') ? 'http' : 'https';
 	const closeOver10Tabs = () => isOver10Tabs(false);
 	const closeHelp = () => isHelp(false);
 	const openHelp = () => isHelp(true);
@@ -179,13 +180,69 @@ export function InertiaBrowser() {
 		}
 	});
 
-	// for when reload button disappears
 	useEffect(() => {
 		const loadingCircle = document.getElementById('loading');
 		const reloadButton = document.getElementById('reload');
 
 		if (loadingCircle.style.display == 'none' && reloadButton.style.display == 'none') {
 			reloadButton.style.display = 'inline-block';
+		}
+	});
+
+	useEffect(() => {
+		const addTab = document.getElementById('placeholderChildElem').parentElement;
+		console.log(addTab);
+
+		function removeNextUI(elem) {
+
+			let badClasses = [...elem.classList].filter(className => className.includes('nextui'));
+			badClasses.forEach(className => elem.classList.remove(className));
+
+			elem.style.display = 'inline-block';
+			elem.style.width = '3em';
+			elem.style.height = '3em';
+			elem.style.minWidth = '3em';
+			elem.style.border = 'none';
+			elem.style.borderRadius = '3px';
+			elem.style.backgroundColor = 'transparent';
+
+			const addBg = () => {
+				const callerElem = document.getElementById('placeholderChildElem').parentElement;
+
+				if (callerElem.id != 'addTab') {
+					elem.style.transition = 'all .3s ease';
+					callerElem.style.backgroundColor = '#282828';
+				} else {
+					callerElem.style.removeProperty('background-color');
+					callerElem.style.removeProperty('transition');
+					callerElem.removeEventListener('mouseover', this);
+				}
+			};
+
+			const rmBg = () => {
+				const callerElem = document.getElementById('placeholderChildElem').parentElement;
+
+				if (callerElem.id != 'addTab') {
+					elem.style.transition = 'all .3s ease';
+					callerElem.style.backgroundColor = 'transparent';
+				} else {
+					callerElem.style.removeProperty('background-color');
+					callerElem.style.removeProperty('transition');
+					callerElem.removeEventListener('mouseout', this);
+				}
+			};
+
+
+			elem.addEventListener('mouseover', addBg);
+			elem.addEventListener('mouseout', rmBg);
+		}
+
+		if (addTab) {
+			removeNextUI(addTab);
+		} else {
+			window.addEventListener('load', () => {
+				removeNextUI(addTab);
+			});
 		}
 	});
 
@@ -208,6 +265,7 @@ export function InertiaBrowser() {
 	const AddBtn = ({ ...props }) => (
 		<SvgBtn onClick={addTab} {...props}>
 			<MdAdd size={'1.25em'} style={{ minHeight: '1.25em', minWidth: '1.25em', position: 'absolute', marginTop: '-.625rem', marginLeft: '-.625rem' }} />
+			<div id='placeholderChildElem' />
 		</SvgBtn>
 	);
 
@@ -241,7 +299,7 @@ export function InertiaBrowser() {
 									<nextUI.Button key={index} css={{ width: '2rem', float: 'right', height: '2rem', minWidth: '2rem', backgroundColor: 'transparent' }} icon={<MdClose size={'1.25rem'} />} onClick={(e) => closeTab(e, tab.id)} />
 								</nextUI.Button>
 							))}
-							<AddBtn id={'addTab'} />
+							<AddBtn id='addTab'></AddBtn>
 						</div>
 					</div>
 				</nextUI.Card.Header>
@@ -257,7 +315,7 @@ export function InertiaBrowser() {
 						<nextUI.Loading color='secondary' css={{ width: '2rem', display: 'inline-block', marginLeft: '1rem' }} id='loading' />
 						<ReloadBtn id='reload' style={{ display: 'none', width: '3rem', height: '3rem', minWidth: '3rem', borderRadius: '3px', border: 'none' }} />
 
-						<form onSubmit={handleInput} style={{ width: '96%', marginLeft: '2rem' }} >
+						<form onSubmit={handleInput} style={{ width: '94%', marginRight: '1rem', marginLeft: '1rem' }} >
 							<nextUI.Input css={{ width: '100%' }} id='searchBar' onChange={(e) => setInput(e.target.value)} placeholder='Search Google or Enter URL' bordered />
 							<nextUI.Input css={{ display: 'none' }} type='submit' />
 						</form>
@@ -280,7 +338,7 @@ export function InertiaBrowser() {
 							allow-scripts
 							allow-storage-access-by-user-activation
 							allow-top-navigation
-							allow-top-navigation-by-user-activation' src={`http://${cookie.host}/ultraviolet/${new xor().encode(tab.url)}`} style={{ display: `${currentTab == index ? 'block' : 'none'}` }} />
+							allow-top-navigation-by-user-activation' src={`${protocol}://${cookie.host}/ultraviolet/${new xor().encode(tab.url)}`} style={{ display: `${currentTab == index ? 'block' : 'none'}` }} />
 					</>
 				))}
 			</div>
