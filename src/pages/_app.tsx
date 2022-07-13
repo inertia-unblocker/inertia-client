@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-sync-scripts */
-import type { AppContext, AppProps } from 'next/app';
-import * as themes from '@theme/shared';
+import type { AppContext } from 'next/app';
+import * as themes from '@theme';
 import * as nextThemes from 'next-themes';
 import * as nextUI from '@nextui-org/react';
-import { Navbar } from '@components/navagation/navbar';
-import { Sidebar } from '@components/navagation/sidebar';
+import { Navbar } from '@navigation/navbar';
+import { Sidebar } from '@navigation/sidebar';
 import Head from 'next/head';
 import { Cookies, useCookies, CookiesProvider } from 'react-cookie';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import '@css/global.css';
 import { useEffect } from 'react';
 import App from 'next/app';
@@ -15,11 +15,15 @@ import App from 'next/app';
 function InertiaGlobal({ Component, pageProps, cookies, host }) {
 	const [cookie, setCookie] = useCookies(['proxyLocation', 'externalProxyType', 'externalProxyURL', 'host']);
 	const pathname = useRouter().pathname;
-	const barePages = ['/browser'];
-	const isBrowser = typeof window !== 'undefined';
+	const barePages = ['/browser', '/mobile'];
+	const isClientSide = typeof window !== 'undefined';
+	let firstLoad = false;
 
 	// set cookies on first load
-	if (!cookie.proxyLocation) setCookie('proxyLocation', 'internal');
+	if (!cookie.proxyLocation) {
+		setCookie('proxyLocation', 'internal');
+		firstLoad = true;
+	}
 	if (cookie.proxyLocation === 'external' && !cookie.externalProxyType) setCookie('externalProxyType', 'ultraviolet');
 	if (cookie.proxyLocation === 'external' && !cookie.externalProxyURL) setCookie('externalProxyURL', 'https://is-uv.up.railway.app');
 	setCookie('host', host);
@@ -41,13 +45,15 @@ function InertiaGlobal({ Component, pageProps, cookies, host }) {
 		return (
 			<>
 				<Navbar />
-				<Sidebar />
+				<Sidebar id='sideBar' />
 			</>
 		);
 	};
 
+	if (firstLoad && isClientSide) window.location.reload();
+
 	return (
-		<CookiesProvider cookies={isBrowser ? undefined : new Cookies(cookies)}>
+		<CookiesProvider cookies={isClientSide ? undefined : new Cookies(cookies)}>
 			<nextThemes.ThemeProvider
 				attribute='class'
 				defaultTheme='dark'

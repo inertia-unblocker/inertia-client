@@ -1,4 +1,4 @@
-import { LicenseCard } from '@components/cards/info/license';
+import { LicenseCard } from '@elements/info/license';
 
 function License() {
 	return (

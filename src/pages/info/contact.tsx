@@ -1,4 +1,4 @@
-import { ContactCard } from '@components/cards/info/contact';
+import { ContactCard } from '@elements/info/contact';
 
 function Contact() {
 	return (

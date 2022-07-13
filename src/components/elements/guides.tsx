@@ -1,27 +1,27 @@
 import * as nextUI from '@nextui-org/react';
 
-export function GuidesCard() {
-	const Bullet = ({index}) => {
+export function GuidesCard({ ...props }) {
+	const Bullet = ({ index }) => {
 		return (
 			<span>{(index.toString().length == 1) ? '\xa0\xa0' : ''}&emsp; {index}.&emsp;&emsp;</span>
 		);
 	};
-	
+
 	return (
-		<nextUI.Card css={{width: 'calc(95% - 12em)', height: '50em', margin: '2em 0em 0em 1em', display: 'inline-block', verticalAlign: 'top'}}>
+		<nextUI.Card css={{ width: 'calc(95% - 12em)', height: '80%', display: 'inline-block', verticalAlign: 'top', overflow: 'scroll' }} {...props}>
 			<nextUI.Card.Header>
-				<nextUI.Text css={{userSelect: 'none'}} h2>
+				<nextUI.Text css={{ userSelect: 'none' }} h2>
 					Guides
 				</nextUI.Text>
 			</nextUI.Card.Header>
 			<nextUI.Divider />
 			<nextUI.Card.Body>
-				<nextUI.Collapse.Group bordered>	
+				<nextUI.Collapse.Group bordered>
 					<nextUI.Collapse title='GeforceNow on Inertia'>
-						<nextUI.Text css={{userSelect: 'none'}} h4>
+						<nextUI.Text css={{ userSelect: 'none' }} h4>
 							Setup
 						</nextUI.Text>
-						<nextUI.Text css={{userSelect: 'none'}}>
+						<nextUI.Text css={{ userSelect: 'none' }}>
 							<Bullet index={1} /> Have a Steam account
 							<br /><Bullet index={2} /> On your HOME COMPUTER, go to <nextUI.Link href='https://play.geforcenow.com' target='_blank'>GeforceNow</nextUI.Link>
 							<br /><Bullet index={3} /> Click &quot;Log in&quot;, click Nvidia, enter your HOME email address
@@ -42,10 +42,10 @@ export function GuidesCard() {
 							<br /><Bullet index={18} /> This will log you in on your school chromebook.
 							<br /><br />
 						</nextUI.Text>
-						<nextUI.Text css={{userSelect: 'none'}} h4>
+						<nextUI.Text css={{ userSelect: 'none' }} h4>
 							Playing Games
 						</nextUI.Text>
-						<nextUI.Text css={{userSelect: 'none'}}>
+						<nextUI.Text css={{ userSelect: 'none' }}>
 							<Bullet index={1} /> When you play a game, you might get a Network Error. It will fix itself if you rejoin a few times.
 							If you want to stop this from happening completely, you can plug in your Chromebook.
 						</nextUI.Text>

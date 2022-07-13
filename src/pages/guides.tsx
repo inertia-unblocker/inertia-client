@@ -1,4 +1,4 @@
-import { GuidesCard } from '@components/cards/guides';
+import { GuidesCard } from '@elements/guides';
 
 function Guides() {
 	return (

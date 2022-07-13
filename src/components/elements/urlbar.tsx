@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { agreeURL } from '@utils/agreeURL';
 
-export function URLBar() {
+export function URLBar(props) {
 	const [cookie, _setCookie] = useCookies(['proxyLocation', 'externalProxyURL', 'externalProxyType']);
 	const [input, setInput] = useState('');
 	const router = useRouter();
@@ -28,12 +28,20 @@ export function URLBar() {
 		proxify(url);
 	};
 
+	if (!props.isMobile) {
+		return (
+			<nextUI.Card css={{ marginTop: '.25rem', order: '1', width: '100%' }} variant='flat' isHoverable>
+				<form id='proxyForm' onSubmit={handleInput}>
+					<nextUI.Input css={{ padding: '1em 2em', width: '100%' }} onChange={(e) => setInput(e.target.value)} placeholder='Search Google or enter URL' bordered />
+					<nextUI.Input css={{ display: 'none' }} type='submit' />
+				</form>
+			</nextUI.Card>
+		);
+	}
 	return (
-		<nextUI.Card css={{ marginTop: '3em', order: '1', width: '100%' }} variant='flat' isHoverable>
-			<form id='proxyForm' onSubmit={handleInput}>
-				<nextUI.Input css={{ padding: '1em 2em', width: '100%' }} onChange={(e) => setInput(e.target.value)} placeholder='Search Google or enter URL' bordered />
-				<nextUI.Input css={{ display: 'none' }} type='submit' />
-			</form>
-		</nextUI.Card>
+		<form id='proxyForm' onSubmit={handleInput} {...props}>
+			<nextUI.Input css={{ padding: '1em 2em', width: '100%' }} onChange={(e) => setInput(e.target.value)} placeholder='Search Google or enter URL' bordered />
+			<nextUI.Input css={{ display: 'none' }} type='submit' />
+		</form>
 	);
 }

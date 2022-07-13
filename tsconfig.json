@@ -18,19 +18,33 @@
 		"jsx": "preserve",
 		"incremental": true,
 		"paths": {
-			"@components/*": ["./src/components/*"],
-			"@theme/*": ["./src/theme/*"],
-			"@utils/*": ["./src/utils/*"],
-			"@hooks/*": ["./src/utils/hooks/*"],
-			"@config": ["./src/config/config.json"]
+			"@theme": [
+				"./src/components/theme"
+			],
+			"@navigation/*": [
+				"./src/components/navigation/*"
+			],
+			"@elements/*": [
+				"./src/components/elements/*"
+			],
+			"@utils/*": [
+				"./src/utils/*"
+			],
+			"@css/*": [
+				"./src/css"
+			],
+			"@config": [
+				"./src/config/config.json"
+			]
 		},
 		"strict": false
 	},
 	"include": [
 		"next-env.d.ts",
 		"**/*.ts",
-		"**/*.tsx"
-, "src/config/config.json"	],
+		"**/*.tsx",
+		"src/config/config.json"
+	],
 	"exclude": [
 		"**/node_modules/**"
 	]

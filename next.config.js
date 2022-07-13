@@ -10,10 +10,10 @@ module.exports = {
 		};
 		config.resolve.alias = {
 			...config.resolve.alias,
-			"@components": path.resolve(__dirname, 'src/components'),
-			"@theme": path.resolve(__dirname, 'src/theme'),
+			"@theme": path.resolve(__dirname, 'src/components/theme'),
+			"@navigation": path.resolve(__dirname, 'src/components/navigation'),
+			"@elements": path.resolve(__dirname, 'src/components/elements'),
 			"@utils": path.resolve(__dirname, 'src/utils'),
-			"@hooks": path.resolve(__dirname, 'src/hooks'),
 			"@css": path.resolve(__dirname, 'src/css'),
 			"@config": path.resolve(__dirname, 'src/config/config.json'),
 		}

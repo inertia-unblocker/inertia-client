@@ -1,5 +1,5 @@
 import * as nextUI from '@nextui-org/react';
-import { ThemeSwitch } from '@components/hookedOptions/themeSwitch';
+import { ThemeSwitch } from '../theme/themeSwitch';
 import { MdLightMode as LightMode, MdDarkMode as DarkMode } from 'react-icons/md';
 
 

@@ -1,11 +1,11 @@
-import { URLBar } from '@components/cards/index/urlbar';
-import { Theme } from '@components/cards/index/theme';
-import { Proxy } from '@components/cards/index/proxy';
-import { Analytics } from '@components/cards/index/analytics';
+import { URLBar } from '@elements/urlbar';
+import { Theme } from '@elements/theme';
+import { Proxy } from '@elements/proxy';
+import { Analytics } from '@elements/analytics';
 
 function InertiaMain() {
 	return (
-		<div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: 'calc(95% - 12em)', marginLeft: '12%'}}>
+		<div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: 'calc(95% - 12em)', marginLeft: '12%' }}>
 			<URLBar />
 			<Proxy />
 			<Theme />

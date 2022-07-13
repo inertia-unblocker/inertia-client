@@ -1,4 +1,4 @@
-import { InertiaBrowser } from '@components/browser/browser';
+import { InertiaBrowser } from '@elements/browser';
 
 function Browser() {
 	return (

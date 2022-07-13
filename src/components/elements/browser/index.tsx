@@ -2,7 +2,7 @@ import * as nextUI from '@nextui-org/react';
 import browserStyles from '@css/browser.module.css';
 import { useCookies } from 'react-cookie';
 import { useEffect, useState } from 'react';
-import { MdAdd, MdArrowBack, MdClose, MdHelp, MdRefresh } from 'react-icons/md';
+import { MdAdd, MdArrowBack, MdClose, MdOutlineHome, MdRefresh } from 'react-icons/md';
 import { agreeURL } from '@utils/agreeURL';
 import { isIframe } from './isIframe';
 import { isInput } from './isInput';
@@ -14,8 +14,6 @@ export function InertiaBrowser() {
 	const [currentTab, setCurrentTab] = useState(0);
 	const [over10Tabs, isOver10Tabs] = useState(false);
 	const [loading, setLoadingState] = useState(false);
-	const [help, isHelp] = useState(false);
-
 	const [tabs, setTabs] = useState([
 		{
 			id: 0,
@@ -146,9 +144,9 @@ export function InertiaBrowser() {
 
 	const protocol = cookie.host.includes('localhost') ? 'http' : 'https';
 	const closeOver10Tabs = () => isOver10Tabs(false);
-	const closeHelp = () => isHelp(false);
-	const openHelp = () => isHelp(true);
+	const goToMainPage = () => window.location.href = `${protocol}://${cookie.host}`;
 
+	// Spacing between x-button and tab text
 	useEffect(() => {
 		const tabs = [...document.querySelectorAll('.tabText')].map(elem => elem.parentElement);
 
@@ -157,6 +155,7 @@ export function InertiaBrowser() {
 		}
 	});
 
+	// Handle many things
 	useEffect(() => {
 		const searchBar = document.getElementById('searchBar');
 
@@ -167,7 +166,14 @@ export function InertiaBrowser() {
 
 			if (isIframe(vport)) {
 				vport.addEventListener('load', () => {
-					if (isInput(searchBar)) searchBar.value = new xor().decode(vport.contentWindow.location.href.split('/ultraviolet/')[1]);
+					let currentURL = new xor().decode(vport.contentWindow.location.href.split('/ultraviolet/')[1]);
+
+					if (i.url != currentURL) {
+						i.prevUrl = [...i.url].join('');
+						i.url = currentURL;
+					}
+
+					if (isInput(searchBar)) searchBar.value = i.url;
 					tab.innerHTML = vport.contentWindow.document.title;
 					setLoading(false);
 
@@ -180,6 +186,7 @@ export function InertiaBrowser() {
 		}
 	});
 
+	// when the reload button disappears
 	useEffect(() => {
 		const loadingCircle = document.getElementById('loading');
 		const reloadButton = document.getElementById('reload');
@@ -189,9 +196,9 @@ export function InertiaBrowser() {
 		}
 	});
 
+	// when the styles of the add tab button go away
 	useEffect(() => {
 		const addTab = document.getElementById('placeholderChildElem').parentElement;
-		console.log(addTab);
 
 		function removeNextUI(elem) {
 
@@ -269,9 +276,9 @@ export function InertiaBrowser() {
 		</SvgBtn>
 	);
 
-	const HelpBtn = ({ ...props }) => (
-		<SvgBtn onClick={openHelp} {...props}>
-			<MdHelp size={'1.25rem'} style={{ minHeight: '1.25rem', minWidth: '1.25rem', position: 'absolute', marginTop: '-.625rem', marginLeft: '-.625rem' }} />
+	const HomeBtn = ({ ...props }) => (
+		<SvgBtn onClick={goToMainPage} {...props}>
+			<MdOutlineHome size={'1.25rem'} style={{ minHeight: '1.25rem', minWidth: '1.25rem', position: 'absolute', marginTop: '-.625rem', marginLeft: '-.625rem' }} />
 		</SvgBtn>
 	);
 
@@ -309,7 +316,7 @@ export function InertiaBrowser() {
 				<nextUI.Card.Body css={{ width: '100%', display: 'inline-block', overflow: 'hidden' }}>
 					<div style={{ display: 'inline-flex', alignItems: 'center', width: '100%' }} >
 
-						<HelpBtn id='helpBtn' />
+						<HomeBtn id='helpBtn' />
 						<BackBtn id='backBtn' />
 
 						<nextUI.Loading color='secondary' css={{ width: '2rem', display: 'inline-block', marginLeft: '1rem' }} id='loading' />
@@ -348,16 +355,7 @@ export function InertiaBrowser() {
 					<nextUI.Text h4>Oops, too many tabs!</nextUI.Text>
 				</nextUI.Modal.Header>
 				<nextUI.Modal.Body>
-					<nextUI.Text>We limit the maximum amount of tabs to 10 because of scaling issues. We apologise for the inconvenience.</nextUI.Text>
-				</nextUI.Modal.Body>
-			</nextUI.Modal>
-
-			<nextUI.Modal onClose={closeHelp} open={help} closeButton>
-				<nextUI.Modal.Header>
-					<nextUI.Text h4>Help and Info</nextUI.Text>
-				</nextUI.Modal.Header>
-				<nextUI.Modal.Body>
-					<nextUI.Text>This is Inertia Browser, a browser PWA designed to be as functional as Chrome or Firefox while hiding your bowsing history</nextUI.Text>
+					<nextUI.Text>We limit the maximum amount of tabs to 10 because of performance issues. We apologise for the inconvenience.</nextUI.Text>
 				</nextUI.Modal.Body>
 			</nextUI.Modal>
 		</>
