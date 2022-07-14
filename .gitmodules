@@ -1,0 +1,3 @@
+[submodule "public/uv"]
+	path = public/uv
+	url = https://github.com/inertia-unblocker/uv-scripts

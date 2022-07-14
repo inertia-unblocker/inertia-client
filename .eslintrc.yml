@@ -1,0 +1,51 @@
+extends:
+  - eslint:recommended
+  - next/core-web-vitals
+
+plugins:
+  - react
+  - import
+  - simple-import-sort
+
+env:
+  browser: true
+  es2021: true
+  node: true
+
+rules:
+  indent:
+    - warn
+    - tab
+
+  quotes:
+    - warn
+    - single
+
+  semi:
+    - error
+    - always
+
+  no-unused-vars: off
+  no-undef: off
+  no-constant-condition: off
+  no-self-assign: off
+  no-empty: off
+
+  react/jsx-sort-props:
+    - warn
+    - shorthandLast: true
+      noSortAlphabetically: false
+      reservedFirst: true
+
+  import/first: warn
+  import/exports-last: warn
+  import/no-duplicates: warn
+  import/no-unresolved: off
+
+  import/newline-after-import:
+    - warn
+    - count: 2
+
+  sort-imports:
+    - warn
+    - allowSeparatedGroups: true

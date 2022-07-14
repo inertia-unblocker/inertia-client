@@ -1,46 +1,55 @@
 .browserContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    white-space: nowrap;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+	white-space: nowrap;
 }
 
 .guiContainer {
-    width: 100%;
-    display: inline-flex;
-    box-sizing: border-box;
-    overflow: hidden;
-    padding: 20px;
+	width: 100%;
+	display: inline-flex;
+	box-sizing: border-box;
+	overflow: hidden;
+	padding: 20px;
 }
 
 .searchBarContainer {
-    display: inline-flex;
-    flex-grow: 100;
-    float: right;
-    overflow: hidden;
-    box-sizing: border-box;
+	display: inline-flex;
+	flex-grow: 100;
+	float: right;
+	overflow: hidden;
+	box-sizing: border-box;
 }
 
 .searchBar {
-    background-color: #282828;
-    box-sizing: border-box;
-    margin: 0px 5px 0px 5px;
-    padding: 6px 12px 6px 12px;
-    width: 100%;
+	background-color: #282828;
+	box-sizing: border-box;
+	margin: 0px 5px 0px 5px;
+	padding: 6px 12px 6px 12px;
+	width: 100%;
 }
 
 .viewportContainer {
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 .viewport {
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    border: none;
-    margin: 0;
-    padding: 0;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.hoverableBtn:hover {
+	background-color: #282828;
+}
+
+.hoverableBtn {
+	background-color: transparent;
+	transition: all .3s ease;
 }

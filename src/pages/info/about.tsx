@@ -1,7 +1,7 @@
-import { AboutCard } from '@components/cards/info/about';
+import { AboutCard } from '@elements/info/about';
 
 function About() {
 	return <AboutCard />;
 }
-  
+
 export default About;

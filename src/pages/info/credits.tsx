@@ -1,8 +1,7 @@
-import { CreditsCard } from '@components/cards/info/credits';
+import { CreditsCard } from '@elements/info/credits';
 
 function Credits() {
 	return <CreditsCard />;
 }
-  
+
 export default Credits;
-  
