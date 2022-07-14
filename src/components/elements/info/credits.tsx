@@ -1,5 +1,6 @@
 import * as nextUI from '@nextui-org/react';
 
+
 export function CreditsCard({ ...props }) {
 	return (
 		<nextUI.Card css={{ width: 'calc(95% - 12em)', height: '85%', display: 'inline-block', verticalAlign: 'top' }} {...props}>
@@ -9,7 +10,7 @@ export function CreditsCard({ ...props }) {
 				</nextUI.Text>
 			</nextUI.Card.Header>
 			<nextUI.Divider />
-			<nextUI.Card.Body>
+			<nextUI.Card.Body css={{ marginLeft: '.25rem' }}>
 				<nextUI.Text css={{ userSelect: 'none' }} h3>
 					Inertia Development Team
 				</nextUI.Text>
@@ -25,7 +26,7 @@ export function CreditsCard({ ...props }) {
 
 					&emsp; -&emsp;&emsp;<nextUI.Link href='https://github.com/Doomcow500'>
 						Doomcow500
-					</nextUI.Link>					<br /><br /><br />
+					</nextUI.Link>					<br /><br />
 				</nextUI.Text>
 
 
@@ -51,7 +52,6 @@ export function CreditsCard({ ...props }) {
 					</nextUI.Link>					<br />
 
 					&emsp; -&emsp;&emsp;@James Bond (Discord)	<br />
-					&emsp; -&emsp;&emsp;@leepicgamer (Discord)	<br />
 					&emsp; -&emsp;&emsp;@Necloremius (Discord)	<br />
 					&emsp; -&emsp;&emsp;@bubbles (Discord)		<br />
 				</nextUI.Text>

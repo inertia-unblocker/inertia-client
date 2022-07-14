@@ -1,5 +1,6 @@
 import * as nextUI from '@nextui-org/react';
 
+
 export function ChangelogCard({ ...props }) {
 	const bullet = <span>&emsp; - &emsp;&emsp;</span>;
 
@@ -13,38 +14,32 @@ export function ChangelogCard({ ...props }) {
 			<nextUI.Divider />
 			<nextUI.Card.Body>
 				<nextUI.Collapse.Group bordered>
-					<nextUI.Collapse title='Frontend App (This one)'>
-						<nextUI.Text css={{ userSelect: 'none' }} h4>
-							Inertia Client v1.1.0 Stable
-						</nextUI.Text>
+					<nextUI.Collapse title='Inertia Client v1.2.0'>
 						<nextUI.Text css={{ userSelect: 'none' }}>
-							{bullet} [Added] Inertia Browser								<br />
-							{bullet} [Added] Guides											<br />
-							{bullet} [Fixed] User sees css-less site for a split second		<br />
-							{bullet} [Fixed] Google Search									<br />
-							{bullet} [Removed] Sunsetted Corrosion							<br /><br /><br />
-						</nextUI.Text>
-						<nextUI.Text css={{ userSelect: 'none' }} h4>
-							Inertia Client v1.0.0 Stable
-						</nextUI.Text>
-						<nextUI.Text css={{ userSelect: 'none' }}>
-							{bullet} [Added] Next.js frontend								<br />
-							{bullet} [Added] New UI with nextUI								<br />
-							{bullet} [Added] User-accessable Analytics						<br />
-							{bullet} [Added] Switch between 3 proxies						<br />
+							{bullet} [Added] Internal proxy for better support and control		<br />
+							{bullet} [Added] Mobile UI											<br />
+							{bullet} [Updated] Huge updates to Inertia Browser					<br />
+							{bullet} [Updated] PDF of license									<br />
+							{bullet} [Known Issue] Firefox rejects headers, breaks Ultraviolet	<br />
 						</nextUI.Text>
 					</nextUI.Collapse>
 
-					<nextUI.Collapse title='Backend Server'>
-						<nextUI.Text css={{ userSelect: 'none' }} h4>
-							Inertia Server v1.0.0 Stable
-						</nextUI.Text>
+					<nextUI.Collapse title='Inertia Client v1.1.0'>
 						<nextUI.Text css={{ userSelect: 'none' }}>
-							{bullet} [Added] 3 Servers, one per proxy						<br />
-							{bullet} [Added] Support for Youtube							<br />
-							{bullet} [Added] Discord login using username and password		<br />
-							{bullet} [Added] OAuth2 Support									<br />
-							{bullet} [Added] Partial GeForceNow Support						<br />
+							{bullet} [Added] Inertia Browser									<br />
+							{bullet} [Added] Guides												<br />
+							{bullet} [Fixed] User sees css-less site for a split second			<br />
+							{bullet} [Fixed] Google Search										<br />
+							{bullet} [Removed] Sunsetted Corrosion								<br />
+						</nextUI.Text>
+					</nextUI.Collapse>
+
+					<nextUI.Collapse title='Inertia Client v1.0.0'>
+						<nextUI.Text css={{ userSelect: 'none' }}>
+							{bullet} [Added] Next.js frontend									<br />
+							{bullet} [Added] New UI with nextUI									<br />
+							{bullet} [Added] User-accessable Analytics							<br />
+							{bullet} [Added] Switch between 3 proxies							<br />
 						</nextUI.Text>
 					</nextUI.Collapse>
 				</nextUI.Collapse.Group>

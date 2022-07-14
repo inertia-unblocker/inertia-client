@@ -1,5 +1,6 @@
 import * as nextUI from '@nextui-org/react';
 
+
 export function LicenseCard({ ...props }) {
 	return (
 		<nextUI.Card css={{ width: 'calc(95% - 12em)', display: 'inline-block', verticalAlign: 'top', height: '85%' }} {...props}>

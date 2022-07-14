@@ -1,5 +1,6 @@
 import * as nextUI from '@nextui-org/react';
 
+
 export function ContactCard({ ...props }) {
 	return (
 		<nextUI.Card css={{ width: 'calc(95% - 12em)', height: '85%', display: 'inline-block', verticalAlign: 'top' }} {...props}>
@@ -9,7 +10,7 @@ export function ContactCard({ ...props }) {
 				</nextUI.Text>
 			</nextUI.Card.Header>
 			<nextUI.Divider />
-			<nextUI.Card.Body>
+			<nextUI.Card.Body css={{ marginLeft: '.25rem' }}>
 				<nextUI.Text css={{ userSelect: 'none' }} h3>
 					GitHub Issues
 				</nextUI.Text>
