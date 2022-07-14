@@ -1,31 +1,45 @@
 /* eslint-disable @next/next/no-sync-scripts */
-import type { AppContext } from 'next/app';
-import * as themes from '@theme';
-import * as nextThemes from 'next-themes';
 import * as nextUI from '@nextui-org/react';
+
+import * as nextThemes from 'next-themes';
+import * as themes from '@theme';
+
+import { Cookies, CookiesProvider, useCookies } from 'react-cookie';
+import { browserIsFirefox, isClientSide } from '@utils/detectors';
+
+import type { AppContext } from 'next/app';
 import { Navbar } from '@navigation/navbar';
 import { Sidebar } from '@navigation/sidebar';
-import Head from 'next/head';
-import { Cookies, useCookies, CookiesProvider } from 'react-cookie';
-import Router, { useRouter } from 'next/router';
-import '@css/global.css';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
 import App from 'next/app';
+import Head from 'next/head';
+
+import '@css/global.css';
+
 
 function InertiaGlobal({ Component, pageProps, cookies, host }) {
 	const [cookie, setCookie] = useCookies(['proxyLocation', 'externalProxyType', 'externalProxyURL', 'host']);
 	const pathname = useRouter().pathname;
 	const barePages = ['/browser', '/mobile'];
-	const isClientSide = typeof window !== 'undefined';
 	let firstLoad = false;
 
-	// set cookies on first load
-	if (!cookie.proxyLocation) {
-		setCookie('proxyLocation', 'internal');
-		firstLoad = true;
+	if (!browserIsFirefox) {
+		if (!cookie.proxyLocation) {
+			setCookie('proxyLocation', 'internal');
+			firstLoad = true;
+		}
+		if (cookie.proxyLocation === 'external' && !cookie.externalProxyType) setCookie('externalProxyType', 'ultraviolet');
+		if (cookie.proxyLocation === 'external' && !cookie.externalProxyURL) setCookie('externalProxyURL', 'https://is-uv.up.railway.app');
+	} else {
+		if (!cookie.proxyLocation) {
+			setCookie('proxyLocation', 'external');
+			firstLoad = true;
+		}
+		setCookie('externalProxyType', 'alloy');
+		if (cookie.proxyLocation === 'external' && !cookie.externalProxyURL) setCookie('externalProxyURL', 'https://is-alloy.up.railway.app');
 	}
-	if (cookie.proxyLocation === 'external' && !cookie.externalProxyType) setCookie('externalProxyType', 'ultraviolet');
-	if (cookie.proxyLocation === 'external' && !cookie.externalProxyURL) setCookie('externalProxyURL', 'https://is-uv.up.railway.app');
 	setCookie('host', host);
 
 	// overlay until site fully loads

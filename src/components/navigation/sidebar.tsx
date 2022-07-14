@@ -1,9 +1,12 @@
 import * as nextUI from '@nextui-org/react';
-import config from '@config';
-import { useRouter } from 'next/router';
-import { pagesFS } from './sidebarItems/pagesFS';
-import { BsChevronDoubleLeft } from 'react-icons/bs';
+
 import { DetailedHTMLProps, HTMLAttributes, useEffect } from 'react';
+import { BsChevronDoubleLeft } from 'react-icons/bs';
+import { pagesFS } from './sidebarItems/pagesFS';
+import { useRouter } from 'next/router';
+
+import config from '@config';
+
 
 export function Sidebar({ ...props }: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>) {
 	const currentPage: string = useRouter().pathname;

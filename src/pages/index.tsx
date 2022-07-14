@@ -1,8 +1,9 @@
-import { URLBar } from '@elements/urlbar';
-import { Theme } from '@elements/theme';
-import { Proxy } from '@elements/proxy';
 import { Analytics } from '@elements/analytics';
 import { MobileView } from 'react-device-detect';
+import { Proxy } from '@elements/proxy';
+import { Theme } from '@elements/theme';
+import { URLBar } from '@elements/urlbar';
+
 
 function InertiaMain() {
 	return (
@@ -12,7 +13,7 @@ function InertiaMain() {
 			<Theme />
 			<Analytics />
 			<MobileView>
-				<meta httpEquiv="Refresh" content="0; url='./mobile'" />
+				<meta content="0; url='./mobile'" httpEquiv="Refresh" />
 			</MobileView>
 		</div>
 	);

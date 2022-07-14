@@ -1,11 +1,6 @@
 export function pagesFS() {
-	/*
-		This snippet basically gets json to act like a file system for pages.
-		Specifically, it is json with parent objects.
-		Trust me, I was *going* to use the fs module.
-	*/
 	const parenter = {
-		set: function(target, prop, value) {
+		set: function (target, prop, value) {
 			if (typeof value === 'object') {
 				let targetObjectMod;
 				let folderData;
@@ -13,18 +8,18 @@ export function pagesFS() {
 
 				if (prop == 'subpages') {
 					targetObjectMod = target.parent;
-					folderData = {...target};
+					folderData = { ...target };
 
 					delete folderData.parent;
 					delete folderData.subpages;
 					delete folderData.folderData;
 
-					p = new Proxy({parent: targetObjectMod, folderData: folderData}, parenter);
+					p = new Proxy({ parent: targetObjectMod, folderData: folderData }, parenter);
 				} else {
 					targetObjectMod = target;
-					p = new Proxy({parent: targetObjectMod}, parenter);
+					p = new Proxy({ parent: targetObjectMod }, parenter);
 				}
-				
+
 				for (let key in value) {
 					p[key] = value[key];
 				}
@@ -83,6 +78,6 @@ export function pagesFS() {
 			]
 		},
 	];
-	
+
 	return root;
 }

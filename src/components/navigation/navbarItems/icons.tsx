@@ -1,8 +1,15 @@
 import * as nextUI from '@nextui-org/react';
+
 import { FaDiscord as DiscordIcon, FaGithub as GithubIcon } from 'react-icons/fa';
 import { ThemeSwitch } from '../../theme/themeSwitch';
 
-export function Icons({ hasThemeSwitch = false, size = 1.5, ...props }) {
+
+interface IconProps extends nextUI.GridContainerProps {
+	hasThemeSwitch?: boolean;
+	size?: number;
+}
+
+export function Icons({ hasThemeSwitch = false, size = 1.5, ...props }: IconProps) {
 	return (
 		<nextUI.Grid.Container gap={2} {...props}>
 			<nextUI.Grid>

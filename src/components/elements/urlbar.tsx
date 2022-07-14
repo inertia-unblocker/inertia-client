@@ -1,10 +1,16 @@
 import * as nextUI from '@nextui-org/react';
+
+import { DetailedHTMLProps, HTMLAttributes, useState } from 'react';
+import { agreeURL } from '@utils/agreeURL';
 import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { agreeURL } from '@utils/agreeURL';
 
-export function URLBar(props) {
+
+interface URLBarProps extends DetailedHTMLProps<HTMLAttributes<HTMLFormElement>, HTMLFormElement> {
+	isMobile?: boolean;
+}
+
+export function URLBar({ isMobile = false, ...props }: URLBarProps) {
 	const [cookie, _setCookie] = useCookies(['proxyLocation', 'externalProxyURL', 'externalProxyType']);
 	const [input, setInput] = useState('');
 	const router = useRouter();
@@ -28,7 +34,7 @@ export function URLBar(props) {
 		proxify(url);
 	};
 
-	if (!props.isMobile) {
+	if (!isMobile) {
 		return (
 			<nextUI.Card css={{ marginTop: '.25rem', order: '1', width: '100%' }} variant='flat' isHoverable>
 				<form id='proxyForm' onSubmit={handleInput}>

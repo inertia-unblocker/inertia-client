@@ -1,1 +1,0 @@
-export const isInput = (input: HTMLElement | null): input is HTMLInputElement => input !== null && input.tagName === 'INPUT';

@@ -1,6 +1,7 @@
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { Icons } from '@navigation/navbarItems/icons';
 import { SiteLink } from '@navigation/navbarItems/siteLink';
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
+
 
 export function Navbar({ ...props }: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>) {
 	return (

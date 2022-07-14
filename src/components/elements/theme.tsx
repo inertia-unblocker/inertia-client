@@ -1,6 +1,7 @@
 import * as nextUI from '@nextui-org/react';
+
+import { MdDarkMode as DarkMode, MdLightMode as LightMode } from 'react-icons/md';
 import { ThemeSwitch } from '../theme/themeSwitch';
-import { MdLightMode as LightMode, MdDarkMode as DarkMode } from 'react-icons/md';
 
 
 export function Theme() {

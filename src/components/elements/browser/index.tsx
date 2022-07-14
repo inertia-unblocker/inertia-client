@@ -1,19 +1,22 @@
 import * as nextUI from '@nextui-org/react';
-import browserStyles from '@css/browser.module.css';
-import { useCookies } from 'react-cookie';
-import { useEffect, useState } from 'react';
+
 import { MdAdd, MdArrowBack, MdClose, MdOutlineHome, MdRefresh } from 'react-icons/md';
+import { isIframe, isInput } from '../../../utils/elemCheck';
+import { useEffect, useState } from 'react';
+
 import { agreeURL } from '@utils/agreeURL';
-import { isIframe } from './isIframe';
-import { isInput } from './isInput';
+import { useCookies } from 'react-cookie';
 import { xor } from './xor';
+
+import browserStyles from '@css/browser.module.css';
+
 
 export function InertiaBrowser() {
 	const [cookie, _setCookies] = useCookies(['proxy', 'server', 'host']);
 	const [input, setInput] = useState('');
 	const [currentTab, setCurrentTab] = useState(0);
 	const [over10Tabs, isOver10Tabs] = useState(false);
-	const [loading, setLoadingState] = useState(false);
+	const [_loading, setLoadingState] = useState(false);
 	const [tabs, setTabs] = useState([
 		{
 			id: 0,

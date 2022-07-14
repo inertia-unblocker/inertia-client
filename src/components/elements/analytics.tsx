@@ -1,6 +1,8 @@
 import * as nextUI from '@nextui-org/react';
-import config from '@config';
+
 import React from 'react';
+import config from '@config';
+
 
 export function Analytics() {
 	const [loading, setLoading] = React.useState(true);
@@ -62,7 +64,7 @@ export function Analytics() {
 	}, [data]);
 
 	return (
-		<nextUI.Card css={{ margin: '2% 0% 0% 1%', verticalAlign: 'top', order: '4', width: '58%' }} variant='bordered' isHoverable>
+		<nextUI.Card css={{ margin: '2% 0% 2% 1%', verticalAlign: 'top', order: '4', width: '58%' }} variant='bordered' isHoverable>
 			<nextUI.Card.Header>
 				<nextUI.Text css={{ userSelect: 'none' }} h2>
 					Analytics
