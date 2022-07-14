@@ -2,6 +2,7 @@ import { URLBar } from '@elements/urlbar';
 import { Theme } from '@elements/theme';
 import { Proxy } from '@elements/proxy';
 import { Analytics } from '@elements/analytics';
+import { MobileView } from 'react-device-detect';
 
 function InertiaMain() {
 	return (
@@ -10,6 +11,9 @@ function InertiaMain() {
 			<Proxy />
 			<Theme />
 			<Analytics />
+			<MobileView>
+				<meta httpEquiv="Refresh" content="0; url='./mobile'" />
+			</MobileView>
 		</div>
 	);
 }
