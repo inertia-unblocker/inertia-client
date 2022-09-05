@@ -6,11 +6,11 @@ import { browserIsFirefox } from '@utils/detectors';
 import { useCookies } from 'react-cookie';
 import { useState } from 'react';
 
-export function MProxy(size = 1.5) {
+export function MProxy() {
 
 	interface IconProps extends nextUI.GridContainerProps {
 		hasThemeSwitch?: boolean;
-		size?: number;
+		/*size?: number;*/
 	}
 
     const [modalVisible, setModalVisible] = useState(false);
@@ -74,10 +74,10 @@ export function MProxy(size = 1.5) {
 
 	return (
 		<nextUI.Card css={{ width: '1.5rem', height: '1.5rem', verticalAlign: 'top', order: '2' }} isHoverable>
-			<Fiproxy size={`${size}rem`} onClick={openHandler} />
+			<Fiproxy size={'24px'} onClick={openHandler} />
 			<nextUI.Modal aria-labelledby='modal-title' onClose={closeHandler} open={modalVisible} width={'55em'} closeButton>
 				<nextUI.Modal.Header>
-					<nextUI.Text id='modal-title' size={18} >
+					<nextUI.Text id='modal-title' >
 						Change External Server Options
 					</nextUI.Text>
 				</nextUI.Modal.Header>
