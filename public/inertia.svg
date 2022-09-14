@@ -1,46 +1,47 @@
-<svg 
-	width="222" 
-	height="222" 
-	viewBox="0 0 222 202" 
-	fill="none" 
-	xmlns="http://www.w3.org/2000/svg"
->
-	<defs>
-		<linearGradient id="inertiaGradient" gradientTransform="rotate(90)">
-			<stop offset="20%"  stop-color="#f5a623" />
-			<stop offset="80%" stop-color="#f21361" />
-		</linearGradient>
-	</defs>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+		fill="none"
+		height="201.5"
+		viewBox="0 0 201.5 201.5"
+		width="201.5"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<defs>
+			<linearGradient gradient-transform="rotate(90)" id="inertiaGradient">
+				<stop offset="20%" stop-color="#f5a623" />
+				<stop offset="80%" stop-color="#f21361" />
+			</linearGradient>
+		</defs>
 
-	<path 
-		d="M136 6C156 56 126 129.5 6 129.5H216L136 6Z" 
-		stroke="url('#inertiaGradient')" 
-		stroke-width="11" 
-		stroke-linejoin="round"
-		fill="url('#inertiaGradient')"
-	/>
-	
-	<path 
-		d="M216 196V148.5H6V196H216Z" 
-		stroke="#555555" 
-		stroke-width="11" 
-		stroke-linejoin="round"
-		fill="#555555"
-	/>
+		<path
+			d="M 124.12146,2.5969153 C 142.82618,54.219543 114.76912,130.10479 2.5407457,130.10479 H 198.94038 Z"
+			fill="url('#inertiaGradient')"
+			stroke="url('#inertiaGradient')"
+			stroke-linejoin="round"
+			stroke-width="10"
+		/>
 
-	<ellipse 
-		cx="166.237" 
-		cy="170.599" 
-		rx="9.95261" 
-		ry="10.1604" 
-		fill="#17c964"
-	/>
-	
-	<ellipse 
-		cx="195.597" 
-		cy="170.599" 
-		rx="9.45498"
-		ry="10.1604"
-		fill="#f21361"
-	/>
-</svg>
+		<path
+			d="M 196.3485,196.21785 V 148.28296 H 5.2715806 v 47.93489 z"
+			fill="#555555"
+			stroke="#555555"
+			stroke-linejoin="round"
+			stroke-width="10"
+		/>
+
+		<ellipse
+			cx="145"
+			cy="170.6"
+			fill="#17c964"
+			rx="10"
+			ry="10"
+		/>
+
+		<ellipse
+			cx="178"
+			cy="172.25"
+			fill="#f21361"
+			rx="10"
+			ry="10"
+		/>
+	</svg>

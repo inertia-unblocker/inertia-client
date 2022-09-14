@@ -1,2 +1,0 @@
-export const isInput = (input: HTMLElement | null): input is HTMLInputElement => input !== null && input.tagName === 'INPUT';
-export const isIframe = (input: HTMLElement | null): input is HTMLIFrameElement => input !== null && input.tagName === 'IFRAME';

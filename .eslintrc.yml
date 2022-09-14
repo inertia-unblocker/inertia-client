@@ -16,6 +16,7 @@ rules:
   indent:
     - warn
     - tab
+    - SwitchCase: 1
 
   quotes:
     - warn
@@ -36,16 +37,18 @@ rules:
     - shorthandLast: true
       noSortAlphabetically: false
       reservedFirst: true
+      multiline: ignore
 
   import/first: warn
-  import/exports-last: warn
+  import/exports-last: off
   import/no-duplicates: warn
   import/no-unresolved: off
 
   import/newline-after-import:
     - warn
-    - count: 2
+    - count: 1
 
   sort-imports:
     - warn
     - allowSeparatedGroups: true
+      ignoreCase: true

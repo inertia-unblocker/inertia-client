@@ -19,23 +19,35 @@
 		"incremental": true,
 		"paths": {
 			"@theme": [
-				"./src/components/theme"
+				"./src/theme"
 			],
-			"@navigation/*": [
-				"./src/components/navigation/*"
+			"@nav": [
+				"./src/navigation"
 			],
-			"@elements/*": [
-				"./src/components/elements/*"
+			"@elem/*": [
+				"./src/elements/*"
 			],
-			"@utils/*": [
-				"./src/utils/*"
+			"@util/*": [
+				"./src/util/*"
 			],
 			"@css/*": [
-				"./src/css"
+				"./src/css/*"
 			],
-			"@config": [
+			"@icons": [
+				"./src/icons"
+			],
+			"@pages/*": [
+				"./src/pages/*"
+			],
+			"@lib/*": [
+				"./lib/*"
+			],
+			"@account/*": [
+				"./src/account/*"
+			],
+			"@cfg": [
 				"./src/config/config.json"
-			]
+			],
 		},
 		"strict": false
 	},

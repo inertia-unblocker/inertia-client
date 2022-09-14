@@ -1,21 +1,24 @@
-import { Analytics } from '@elements/analytics';
-import { MobileView } from 'react-device-detect';
-import { Proxy } from '@elements/proxy';
-import { Theme } from '@elements/theme';
-import { URLBar } from '@elements/urlbar';
+import { isDesktop } from 'react-device-detect';
+
+import { Footer } from '@elem/footer';
+import { URLBar } from '@elem/urlbar';
 
 
 function InertiaMain() {
 	return (
-		<div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: 'calc(95% - 12em)', marginLeft: '12%' }}>
-			<URLBar />
-			<Proxy />
-			<Theme />
-			<Analytics />
-			<MobileView>
-				<meta content="0; url='./mobile'" httpEquiv="Refresh" />
-			</MobileView>
-		</div>
+		<>
+			{
+				isDesktop ? (
+					<div style={{ margin: '3rem 2rem 0rem 2rem' }}>
+						<URLBar />
+					</div>
+				) : (
+					<>
+						<URLBar style={{ marginTop: '1rem' }} isMobile />
+					</>
+				)
+			}
+		</>
 	);
 }
 

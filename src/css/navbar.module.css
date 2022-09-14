@@ -1,0 +1,9 @@
+.hoverableBtn:hover {
+	background-color: #282828 !important;
+}
+
+.hoverableBtn {
+	background-color: transparent !important;
+	border: '0';
+	transition: all .3s ease;
+}

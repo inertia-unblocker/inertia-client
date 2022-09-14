@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const config = require('./src/config/config.json');
 const path = require('path');
+const webpack = require('webpack');
 
-module.exports = {
+const { parsed: localEnv } = require('dotenv').config();
+
+const nextConfig = {
 	webpack: (config) => {
 		config.experiments = {
 			topLevelAwait: true,
@@ -10,18 +13,27 @@ module.exports = {
 		};
 		config.resolve.alias = {
 			...config.resolve.alias,
-			"@theme": path.resolve(__dirname, 'src/components/theme'),
-			"@navigation": path.resolve(__dirname, 'src/components/navigation'),
-			"@elements": path.resolve(__dirname, 'src/components/elements'),
-			"@utils": path.resolve(__dirname, 'src/utils'),
-			"@css": path.resolve(__dirname, 'src/css'),
-			"@config": path.resolve(__dirname, 'src/config/config.json'),
-		}
-
+			'@theme': path.resolve(__dirname, 'src/theme'),
+			'@nav': path.resolve(__dirname, 'src/navigation'),
+			'@elem': path.resolve(__dirname, 'src/elements'),
+			'@util': path.resolve(__dirname, 'src/util'),
+			'@css': path.resolve(__dirname, 'src/css'),
+			'@icons': path.resolve(__dirname, 'src/icons'),
+			'@lib': path.resolve(__dirname, 'lib'),
+			'@account': path.resolve(__dirname, 'src/account'),
+			'@cfg': path.resolve(__dirname, 'src/config/config.json'),
+		};
+		config.plugins.push(new webpack.EnvironmentPlugin(localEnv));
+		config.externals = [
+			...config.externals,
+			'child_process',
+			'dns',
+			'fs',
+			'net',
+			'tls'
+		];
 		return config;
 	},
-	basePath: config.prefix,
-	assetPrefix: config.prefix,
 	async headers() {
 		return [
 			{
@@ -39,5 +51,10 @@ module.exports = {
 				],
 			}
 		];
-	}
+	},
+	reactStrictMode: false,
 };
+
+config.prefix ? nextConfig.basePath = config.prefix : null;
+config.prefix ? nextConfig.assetPrefix = config.prefix : null;
+module.exports = nextConfig;
