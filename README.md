@@ -6,7 +6,7 @@ The Next.js and NextUI-based frontend for Inertia.
 
 This is the frontend of Inertia
 
-- Maintainers: [TheAlphaReturns](https://github.com/TheAlphaReturns) and [Doomcow500](https://github.com/Doomcow500)
+- Maintainers: [OnlyCS](https://github.com/OnlyCS) and [Doomcow500](https://github.com/Doomcow500)
 - Status: Stable
 
 ## Website
