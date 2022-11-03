@@ -209,9 +209,9 @@ export function InertiaBrowser() {
 			badClasses.forEach(className => elem.classList.remove(className));
 
 			elem.style.display = 'inline-block';
-			elem.style.width = '3em';
-			elem.style.height = '3em';
-			elem.style.minWidth = '3em';
+			elem.style.width = '2.5em';
+			elem.style.height = '2.5em';
+			elem.style.minWidth = '2.5em';
 			elem.style.border = 'none';
 			elem.style.borderRadius = '3px';
 			elem.style.backgroundColor = 'transparent';
@@ -262,9 +262,9 @@ export function InertiaBrowser() {
 
 			style={{
 				display: 'inline-block',
-				width: '3rem',
-				height: '3rem',
-				minWidth: '3rem',
+				width: '2rem',
+				height: '2rem',
+				minWidth: '2rem',
 				borderRadius: '3px',
 				border: 'none'
 			}}
@@ -299,14 +299,14 @@ export function InertiaBrowser() {
 
 	return (
 		<>
-			<nextUI.Card css={{ width: '100%', height: '10rem', overflow: 'hidden', borderRadius: '0px' }} variant='flat'>
-				<nextUI.Card.Header css={{ width: '100%', display: 'inline-block' }}>
+			<nextUI.Card css={{ width: '100%', height: '7rem', overflow: 'hidden', borderRadius: '0px' }} variant='flat'>
+				<nextUI.Card.Header css={{ width: '100%', display: 'inline-block', padding: '.5rem', paddingBottom: '.25rem !important' }}>
 					<div style={{ width: '100%', alignSelf: 'flex-start', display: 'inline-block' }}>
 						<div style={{ float: 'left', display: 'flex', width: '100%' }}>
 							{tabs.map((tab, index, array) => (
-								<nextUI.Button key={index} bordered={currentTab == tab.id ? false : true} className={currentTab == tab.id ? '' : browserStyles.hoverableTab} css={{ display: 'inline-block', marginRight: '1rem', maxWidth: '17rem', width: `calc(100% / ${array.length})`, height: '3rem', borderRadius: '3px', backgroundColor: `${currentTab == tab.id ? 'auto' : 'transparent'}`, minWidth: '0rem' }} id={`tab${index}`} onClick={(e) => handleTabSwitch(e, tab.id)}>
+								<nextUI.Button key={index} bordered={currentTab == tab.id ? false : true} className={currentTab == tab.id ? '' : browserStyles.hoverableTab} css={{ display: 'inline-block', marginRight: '1rem', maxWidth: '17rem', width: `calc(100% / ${array.length})`, height: '2.5rem', borderRadius: '3px', backgroundColor: `${currentTab == tab.id ? 'auto' : 'transparent'}`, minWidth: '0rem' }} id={`tab${index}`} onClick={(e) => handleTabSwitch(e, tab.id)}>
 									<div className='tabText' id={`tabText${index}`} style={{ marginLeft: '1.5%', float: 'left', overflow: 'hidden', color: '#fff' }}>Loading...</div>
-									<nextUI.Button key={index} css={{ width: '2rem', float: 'right', height: '2rem', minWidth: '2rem', backgroundColor: 'transparent' }} icon={<MdClose size={'1.25rem'} />} onClick={(e) => closeTab(e, tab.id)} />
+									<nextUI.Button key={index} css={{ width: '2.5rem', float: 'right', height: '2.5rem', minWidth: '2.5rem', backgroundColor: 'transparent' }} icon={<MdClose size={'1.25rem'} />} onClick={(e) => closeTab(e, tab.id)} />
 								</nextUI.Button>
 							))}
 							<AddBtn id='addTab'></AddBtn>
@@ -316,17 +316,17 @@ export function InertiaBrowser() {
 
 				<nextUI.Divider />
 
-				<nextUI.Card.Body css={{ width: '100%', display: 'inline-block', overflow: 'hidden' }}>
+				<nextUI.Card.Body css={{ width: '100%', display: 'inline-block', overflow: 'hidden', padding: '.5rem' }}>
 					<div style={{ display: 'inline-flex', alignItems: 'center', width: '100%' }} >
 
 						<HomeBtn id='helpBtn' />
 						<BackBtn id='backBtn' />
 
 						<nextUI.Loading color='secondary' css={{ width: '2rem', display: 'inline-block', marginLeft: '1rem' }} id='loading' />
-						<ReloadBtn id='reload' style={{ display: 'none', width: '3rem', height: '3rem', minWidth: '3rem', borderRadius: '3px', border: 'none' }} />
+						<ReloadBtn id='reload' style={{ display: 'none', width: '2rem', height: '2rem', minWidth: '2rem', borderRadius: '3px', border: 'none' }} />
 
 						<form onSubmit={handleInput} style={{ width: '94%', marginRight: '1rem', marginLeft: '1rem' }} >
-							<nextUI.Input css={{ width: '100%' }} id='searchBar' onChange={(e) => setInput(e.target.value)} placeholder='Search Google or Enter URL' bordered />
+							<nextUI.Input css={{ width: '100%' }} id='searchBar' onChange={(e) => setInput(e.target.value)} placeholder='Search Google or Enter URL' bordered size='xs' />
 							<nextUI.Input css={{ display: 'none' }} type='submit' />
 						</form>
 					</div>
