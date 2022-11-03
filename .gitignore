@@ -132,3 +132,4 @@ replit.nix
 
 # etc
 gh.config.json
+.vercel
