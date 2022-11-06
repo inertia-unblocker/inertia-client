@@ -13,7 +13,9 @@ This is the frontend of Inertia
 
 You can currently find this project on
 
-- https://inertia-unblocker.vercel.app
+- [https://inertia.onlycs.net](https://inertia.onlycs.net)
+
+*visiting [https://inertia.up.railway.app](https://inertia.up.railway.app) will always redirect you to the current site*
 
 ## NextUI?
 
