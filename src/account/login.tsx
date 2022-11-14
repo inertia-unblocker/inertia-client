@@ -55,7 +55,7 @@ export default function LoginModal({ ...props }: LoginModalProps) {
 			password: passwordValue,
 		});
 
-		console.log(response);
+		
 		setLoadingStage(2);
 		setLoadingText('Checking credentials...');
 		if (response.err) {
