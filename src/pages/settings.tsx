@@ -21,17 +21,17 @@ function Settings() {
 	const defaultInputProps = { disabled: false, readOnly: false, rounded: true, animated: true, underlined: false, shadow: true, contentClickable: true, contentRightStyling: true, contentLeftStyling: true, required: false, width: '', autoComplete: '', className: '', initialValuets: '', initialValue: '' };
 
 	const handleProxyLocationChange = (value: string) => {
-		console.log(value);
+		
 	};
 
 	const handleProxyTypeChange = (value: string) => {
-		console.log(value);
+		
 	};
 
 	const handleProxyURLChange = (value) => {
 		value.preventDefault();
 
-		console.log('e');
+		
 
 		if (URLHelper.value === 'success') {
 			setCookie('externalProxyURL', value.target.value, { path: '/' });

@@ -40,7 +40,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		username,
 		password: 'abc'
 	}).catch(e => {
-		console.log(e);
+		
 		throw new Error('DATABASE_ERROR');
 	});
 
