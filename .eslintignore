@@ -1,2 +1,3 @@
 src/config/config.js
 public/uv
+node_modules/
