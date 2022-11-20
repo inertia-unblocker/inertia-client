@@ -13,9 +13,7 @@ This is the frontend of Inertia
 
 You can currently find this project on
 
-- [https://inertia.onlycs.net](https://inertia.onlycs.net)
-
-*visiting [https://inertia.up.railway.app](https://inertia.up.railway.app) will always redirect you to the current site*
+- https://inertia-unblocker.vercel.app
 
 ## NextUI?
 
@@ -25,3 +23,5 @@ Learn more at [their Github page](https://github.com/nextui-org/nextui) or their
 ## Contributing
 
 Use `eslint` to format and correct the code. Please do not edit any of the formatting checks.
+
+Please follow existing code style and naming conventions. (HINT: Don't refactor)

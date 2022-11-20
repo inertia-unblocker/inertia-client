@@ -13,6 +13,8 @@ env:
   node: true
 
 rules:
+  "@next/next/no-sync-scripts": off
+
   indent:
     - warn
     - tab
@@ -52,3 +54,5 @@ rules:
     - warn
     - allowSeparatedGroups: true
       ignoreCase: true
+
+  \@next/next/no-sync-scripts: off

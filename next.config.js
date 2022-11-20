@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-const config = require('./src/config/config.json');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -13,15 +12,9 @@ const nextConfig = {
 		};
 		config.resolve.alias = {
 			...config.resolve.alias,
-			'@theme': path.resolve(__dirname, 'src/theme'),
-			'@nav': path.resolve(__dirname, 'src/navigation'),
-			'@elem': path.resolve(__dirname, 'src/elements'),
-			'@util': path.resolve(__dirname, 'src/util'),
-			'@css': path.resolve(__dirname, 'src/css'),
-			'@icons': path.resolve(__dirname, 'src/icons'),
-			'@lib': path.resolve(__dirname, 'lib'),
-			'@account': path.resolve(__dirname, 'src/account'),
-			'@cfg': path.resolve(__dirname, 'src/config/config.json'),
+			'@components': path.resolve(__dirname, 'src/components'),
+			'@utils': path.resolve(__dirname, 'src/utils'),
+			'@props': path.resolve(__dirname, 'src/props'),
 		};
 		config.plugins.push(new webpack.EnvironmentPlugin(localEnv));
 		config.externals = [
@@ -55,6 +48,4 @@ const nextConfig = {
 	reactStrictMode: false,
 };
 
-config.prefix ? nextConfig.basePath = config.prefix : null;
-config.prefix ? nextConfig.assetPrefix = config.prefix : null;
 module.exports = nextConfig;
