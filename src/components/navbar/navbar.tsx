@@ -82,7 +82,7 @@ export function Navbar({ ...props }: NavbarProps) {
 				</NextUINavbar.Content>
 			</NextUINavbar>
 
-			{LoginModal}
+			<LoginModal />
 		</>
 	);
 }

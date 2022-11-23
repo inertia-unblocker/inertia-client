@@ -16,6 +16,6 @@ export class ProxyConfig {
 		const [cookies] = useCookies(['proxy']);
 
 		if (!cookies.proxy) return false;
-		return JSON.parse(cookies.proxy);
+		return cookies.proxy;
 	}
 }

@@ -1,5 +1,6 @@
 import { NextUIProvider } from '@nextui-org/react';
 import { SessionProvider } from 'next-auth/react';
+import SSRProvider from 'react-bootstrap/SSRProvider';
 import { ThemeProvider } from 'next-themes';
 
 import { Cookies, CookiesProvider, useCookies } from 'react-cookie';
@@ -50,23 +51,25 @@ export const Providers: NextPage<HomeProps> = ({ children, cookies, session, hos
 
 	return (
 		<>
-			<SessionProvider session={session}>
-				<CookiesProvider cookies={client ? undefined : new Cookies(cookies)}>
-					<ThemeProvider
-						attribute='class'
-						defaultTheme='dark'
-						value={{
-							light: LightTheme.className,
-							dark: DarkTheme.className
-						}}
-					>
-						<NextUIProvider>
-							<main style={{ width: '100%', height: '100%' }}>{children}</main>
-							<div className='blackoutBox' id='blackbox'></div>
-						</NextUIProvider>
-					</ThemeProvider>
-				</CookiesProvider>
-			</SessionProvider>
+			<SSRProvider>
+				<SessionProvider session={session}>
+					<CookiesProvider cookies={client ? undefined : new Cookies(cookies)}>
+						<ThemeProvider
+							attribute='class'
+							defaultTheme='dark'
+							value={{
+								light: LightTheme.className,
+								dark: DarkTheme.className
+							}}
+						>
+							<NextUIProvider>
+								<main style={{ width: '100%', height: '100%' }}>{children}</main>
+								<div className='blackoutBox' id='blackbox'></div>
+							</NextUIProvider>
+						</ThemeProvider>
+					</CookiesProvider>
+				</SessionProvider>
+			</SSRProvider>
 		</>
 	);
 };

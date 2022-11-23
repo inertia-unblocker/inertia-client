@@ -1,15 +1,14 @@
 import * as nextUI from '@nextui-org/react';
 
-import { isIframe, isInput } from '@util/elemCheck';
 import { MdAdd, MdArrowBack, MdClose, MdOutlineHome, MdRefresh } from 'react-icons/md';
 import React, { useEffect, useState } from 'react';
 
-import { agreeURL } from '@util/agreeURL';
+import { fixurl, xor } from '@utils/proxy';
+import { html } from '@utils/checks';
 import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
-import { xor } from '@util/xor';
 
-import browserStyles from '@css/browser.module.css';
+import browserStyles from '../css/browser.module.css';
 
 
 function InertiaBrowser() {
@@ -27,11 +26,18 @@ function InertiaBrowser() {
 		}
 	]);
 
-	const getTabById = (id: number) => tabs.find((tab) => tab.id === id);
+	interface TabType {
+		id: number;
+		prevUrl: string;
+		url: string;
+	}
+
+	const { isIframe, isInput } = html;
+	const getTabById = (id: number): TabType => tabs.find((tab) => tab.id === id) as TabType;
 
 	function setLoading(load: boolean) {
-		const loadingButton = document.getElementById('loading');
-		const reloadButton = document.getElementById('reload');
+		const loadingButton = document.getElementById('loading') as HTMLElement;
+		const reloadButton = document.getElementById('reload') as HTMLElement;
 
 		if (load) {
 			loadingButton.style.display = 'block';
@@ -52,7 +58,7 @@ function InertiaBrowser() {
 		let url = input;
 
 		setLoading(true);
-		url = agreeURL(url);
+		url = fixurl(url);
 
 		tabsCopy[currentTab].url = url;
 		tabsCopy[currentTab].prevUrl = prevUrl;
@@ -61,16 +67,16 @@ function InertiaBrowser() {
 		setInput(url);
 	}
 
-	function handleTabSwitch(e: React.MouseEvent<HTMLButtonElement, MouseEvent>, tabID) {
-		const searchBar = document.getElementById('searchBar');
+	function handleTabSwitch(e: React.MouseEvent<HTMLButtonElement, MouseEvent>, tabID: number) {
+		const searchBar = document.getElementById('searchBar') as HTMLElement;
 		const newTab = getTabById(tabID);
 
 		if (isInput(searchBar)) searchBar.value = newTab.url;
 
 		// check if the viewport of the new tab is loaded
-		let vport = document.getElementById(`viewport${tabID}`);
+		let vport = document.getElementById(`viewport${tabID}`) as HTMLIFrameElement;
 		if (isIframe(vport)) {
-			if (vport.contentDocument.readyState === 'complete') {
+			if ((vport as any).contentDocument.readyState === 'complete') {
 				setLoading(false);
 			} else {
 				setLoading(true);
@@ -81,7 +87,7 @@ function InertiaBrowser() {
 		e.preventDefault();
 	}
 
-	function reloadPage(e) {
+	function reloadPage(e: any) {
 		e.preventDefault();
 		const vport = document.getElementById(`viewport${currentTab}`);
 		setLoading(true);
@@ -89,7 +95,7 @@ function InertiaBrowser() {
 		if (isIframe(vport)) vport.src = vport.src;
 	}
 
-	function goBack(e) {
+	function goBack(e: any) {
 		e.preventDefault();
 		setLoading(true);
 
@@ -98,7 +104,7 @@ function InertiaBrowser() {
 		setTabs(tabsCopy);
 	}
 
-	function addTab(e) {
+	function addTab(e: any) {
 		e.preventDefault();
 
 		let tabsCopy = [...tabs];
@@ -117,7 +123,7 @@ function InertiaBrowser() {
 		}
 	}
 
-	function closeTab(e: React.MouseEvent<HTMLButtonElement, MouseEvent>, tab) {
+	function closeTab(e: React.MouseEvent<HTMLButtonElement, MouseEvent>, tab: number) {
 		e.preventDefault();
 
 		if (tab == currentTab && tabs.length > 1) {
@@ -156,7 +162,7 @@ function InertiaBrowser() {
 		const tabs = [...document.querySelectorAll('.tabText')].map(elem => elem.parentElement);
 
 		for (let i of tabs) {
-			i.style.justifyContent = 'space-between';
+			(i as any).style.justifyContent = 'space-between';
 		}
 	});
 
@@ -166,12 +172,12 @@ function InertiaBrowser() {
 
 		for (let i of tabs) {
 			let id = i.id;
-			const vport = document.getElementById(`viewport${id}`);
-			const tab = document.getElementById(`tabText${id}`);
+			const vport = document.getElementById(`viewport${id}`) as any;
+			const tab = document.getElementById(`tabText${id}`) as any;
 
 			if (isIframe(vport)) {
 				vport.addEventListener('load', () => {
-					let currentURL = xor.decode(vport.contentWindow.location.href.split('/ultraviolet/')[1]);
+					let currentURL = xor.decode((vport as any).contentWindow.location.href.split('/ultraviolet/')[1]);
 
 					if (i.url != currentURL) {
 						i.prevUrl = [...i.url].join('');
@@ -179,10 +185,10 @@ function InertiaBrowser() {
 					}
 
 					if (isInput(searchBar)) searchBar.value = i.url;
-					tab.innerHTML = vport.contentWindow.document.title;
+					tab.innerHTML = (vport as any).contentWindow.document.title;
 					setLoading(false);
 
-					vport.contentWindow.addEventListener('beforeunload', () => {
+					(vport as any).contentWindow.addEventListener('beforeunload', () => {
 						setLoading(true);
 						tab.innerHTML = 'Loading...';
 					});
@@ -193,8 +199,8 @@ function InertiaBrowser() {
 
 	// when the reload button disappears
 	useEffect(() => {
-		const loadingCircle = document.getElementById('loading');
-		const reloadButton = document.getElementById('reload');
+		const loadingCircle = document.getElementById('loading') as any;
+		const reloadButton = document.getElementById('reload') as any;
 
 		if (loadingCircle.style.display == 'none' && reloadButton.style.display == 'none') {
 			reloadButton.style.display = 'inline-block';
@@ -203,9 +209,9 @@ function InertiaBrowser() {
 
 	// when the styles of the add tab button go away
 	useEffect(() => {
-		const addTab = document.getElementById('placeholderChildElem').parentElement;
+		const addTab = (document.getElementById('placeholderChildElem') as any).parentElement;
 
-		function removeNextUI(elem) {
+		function removeNextUI(elem: any) {
 
 			let badClasses = [...elem.classList].filter(className => className.includes('nextui'));
 			badClasses.forEach(className => elem.classList.remove(className));
@@ -218,8 +224,8 @@ function InertiaBrowser() {
 			elem.style.borderRadius = '3px';
 			elem.style.backgroundColor = 'transparent';
 
-			const addBg = () => {
-				const callerElem = document.getElementById('placeholderChildElem').parentElement;
+			function addBg(this: any) {
+				const callerElem = (document.getElementById('placeholderChildElem') as any).parentElement;
 
 				if (callerElem.id != 'addTab') {
 					elem.style.transition = 'all .3s ease';
@@ -229,10 +235,10 @@ function InertiaBrowser() {
 					callerElem.style.removeProperty('transition');
 					callerElem.removeEventListener('mouseover', this);
 				}
-			};
+			}
 
-			const rmBg = () => {
-				const callerElem = document.getElementById('placeholderChildElem').parentElement;
+			function rmBg(this: any) {
+				const callerElem = (document.getElementById('placeholderChildElem') as any).parentElement;
 
 				if (callerElem.id != 'addTab') {
 					elem.style.transition = 'all .3s ease';
@@ -242,7 +248,7 @@ function InertiaBrowser() {
 					callerElem.style.removeProperty('transition');
 					callerElem.removeEventListener('mouseout', this);
 				}
-			};
+			}
 
 
 			elem.addEventListener('mouseover', addBg);

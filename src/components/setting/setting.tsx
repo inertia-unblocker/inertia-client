@@ -1,5 +1,8 @@
 import * as nextUI from '@nextui-org/react';
+
 import { ChangeEvent } from 'react';
+import { SettingProps } from '@props';
+
 
 export function Setting({ name, description, type, selections, onChange, radioDisabledValues, ...props }: SettingProps) {
 	let css: nextUI.CSS = {
@@ -13,12 +16,15 @@ export function Setting({ name, description, type, selections, onChange, radioDi
 		marginRight: '1rem'
 	};
 
+	const typedSelections = selections as { name: string, value: string }[];
+	const typedRadioDisabledValues = radioDisabledValues as string[];
+
 	props.css ? css = { ...css, ...props.css } : null;
 	props.inputProps ? props.inputProps.css = { ...inputCss, ...props.inputProps.css } : null;
 	props.switchProps ? props.switchProps.css = { ...inputCss, ...props.switchProps.css } : null;
 	props.radioProps ? props.radioProps.css = { ...inputCss, ...props.radioProps.css } : null;
 
-	const renderSwitch = (param) => {
+	const renderSwitch = (param: 'switch' | 'select' | 'input') => {
 		switch (param) {
 			case 'switch':
 				return <nextUI.Switch onChange={(e) => onChange(e.target.checked)} size='sm' {...props.switchProps} />;
@@ -26,8 +32,8 @@ export function Setting({ name, description, type, selections, onChange, radioDi
 				return (
 					<nextUI.Radio.Group onChange={onChange} orientation='horizontal' size='sm' {...props.radioProps}>
 						{
-							selections.map((s, index) => (
-								<nextUI.Radio key={index} isDisabled={radioDisabledValues.includes(s.value)} value={s.value}>{s.name}</nextUI.Radio>
+							typedSelections.map((s, index) => (
+								<nextUI.Radio key={index} isDisabled={typedRadioDisabledValues.includes(s.value)} value={s.value}>{s.name}</nextUI.Radio>
 							))
 						}
 					</nextUI.Radio.Group>

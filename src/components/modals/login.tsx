@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useState } from 'react';
-import { Modal, Text } from '@nextui-org/react';
+import { Link, Modal, Text } from '@nextui-org/react';
+import { signIn } from 'next-auth/react';
 
 
 export function UseLoginModal(): [Dispatch<SetStateAction<boolean>>, () => JSX.Element] {
@@ -21,6 +22,10 @@ export function UseLoginModal(): [Dispatch<SetStateAction<boolean>>, () => JSX.E
 				<Modal.Body>
 					<Text>
 						Login
+						<Link onClick={(e: any) => {
+							e.preventDefault();
+							signIn('discord');
+						}}>lgn</Link>
 					</Text>
 				</Modal.Body>
 			</Modal>

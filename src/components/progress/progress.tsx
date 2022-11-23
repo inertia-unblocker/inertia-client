@@ -9,7 +9,7 @@ export function UseProgress(max: number): [setStage: (newStage: number) => void,
 	const percentage = new Percentage(max);
 
 	const setStage = (newStage: number) =>
-		setRawStage(percentage.getRoundedPercentage(newStage));
+		setRawStage(percentage.getRounded(newStage));
 
 	const Progress = () =>
 		<NextUIProgress value={stage} />;

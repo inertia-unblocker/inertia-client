@@ -1,12 +1,12 @@
 import * as nextUI from '@nextui-org/react';
-import { PremiumLockedPage } from '@elem/layouts';
+import { Premium } from '@components/layouts';
 
 function VPN() {
 
 	const Key = nextUI.styled('kbd');
 
 	return (
-		<PremiumLockedPage>
+		<Premium>
 			<nextUI.Card css={{ width: 'calc(100% - 4rem)', margin: '3rem 2rem 0rem' }}>
 				<nextUI.Card.Header>
 					<nextUI.Text css={{ userSelect: 'none' }} h2>
@@ -140,7 +140,7 @@ function VPN() {
 					</nextUI.Collapse.Group>
 				</nextUI.Card.Body>
 			</nextUI.Card>
-		</PremiumLockedPage>
+		</Premium>
 	);
 }
 

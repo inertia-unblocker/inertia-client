@@ -4,7 +4,7 @@ import DiscordProvider from 'next-auth/providers/discord';
 import GithubProvider from 'next-auth/providers/github';
 
 import { PrismaAdapter as Adapter } from '@next-auth/prisma-adapter';
-import { prisma } from '@db/client';
+import { prisma } from '@db';
 
 
 export default NextAuth({
