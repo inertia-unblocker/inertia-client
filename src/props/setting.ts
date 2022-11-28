@@ -1,17 +1,31 @@
-import * as nextUI from '@nextui-org/react';
-import { ChangeEvent } from 'react';
+import { CardProps } from '@nextui-org/react';
 
-import { RadioProps } from '.';
+export interface OnOffSettingProps {
+	onChange: (value: boolean) => void;
+	init: boolean;
+}
 
-export interface SettingProps {
+export interface InputSettingProps {
+	onChange: (value: string) => void;
+	validate?: (value: string) => {
+		error: boolean;
+		message?: string;
+	};
+	init: string;
+	placeholder?: string;
+}
+
+export interface SelectSettingProps {
+	onChange: (value: string) => void;
+	init: string;
+	options: {
+		label: string;
+		value: string;
+	}[];
+}
+
+export interface SettingProps extends Omit<CardProps, 'children'> {
 	name: string;
 	description: string;
-	type: 'switch' | 'select' | 'input';
-	selections?: { name: string, value: string }[];
-	onChange: (value: boolean | string | ChangeEvent<nextUI.FormElement>) => void;
-	css?: nextUI.CSS;
-	switchProps?: nextUI.SwitchProps;
-	radioProps?: RadioProps;
-	inputProps?: nextUI.InputProps;
-	radioDisabledValues?: string[];
+	setting: SelectSettingProps | InputSettingProps | OnOffSettingProps;
 }

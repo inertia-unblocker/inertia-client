@@ -29,6 +29,7 @@ const nextConfig = {
 			'@utils': path.resolve(__dirname, 'src/utils'),
 			'@props': path.resolve(__dirname, 'src/props'),
 			'@db': path.resolve(__dirname, 'src/db'),
+			'@css': path.resolve(__dirname, 'src/css'),
 		};
 		config.plugins.push(new webpack.EnvironmentPlugin(localEnv));
 		return config;

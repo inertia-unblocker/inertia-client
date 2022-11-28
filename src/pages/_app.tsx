@@ -5,6 +5,8 @@ import App from 'next/app';
 import type { AppContext } from 'next/app';
 import { getSession } from 'next-auth/react';
 
+import '@css/global.css';
+
 // too afraid to static type these arguments
 function InertiaGlobal({ Component, pageProps, cookies, host, session }: any) {
 	const { pathname } = useRouter();
