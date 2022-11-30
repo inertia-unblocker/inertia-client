@@ -1,11 +1,11 @@
 import { CardProps } from '@nextui-org/react';
 
-export interface OnOffSettingProps {
+export interface OnOffType {
 	onChange: (value: boolean) => void;
 	init: boolean;
 }
 
-export interface InputSettingProps {
+export interface InputType {
 	onChange: (value: string) => void;
 	validate?: (value: string) => {
 		error: boolean;
@@ -15,7 +15,7 @@ export interface InputSettingProps {
 	placeholder?: string;
 }
 
-export interface SelectSettingProps {
+export interface OptionType {
 	onChange: (value: string) => void;
 	init: string;
 	options: {
@@ -27,5 +27,6 @@ export interface SelectSettingProps {
 export interface SettingProps extends Omit<CardProps, 'children'> {
 	name: string;
 	description: string;
-	setting: SelectSettingProps | InputSettingProps | OnOffSettingProps;
+	setting: OptionType | InputType | OnOffType;
+	type: 'onoff' | 'input' | 'option';
 }

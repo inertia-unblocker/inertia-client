@@ -9,6 +9,7 @@ function Settings() {
 				onChange: () => {},
 				init: true
 			}}
+			type='onoff'
 		/>
 	);
 }
