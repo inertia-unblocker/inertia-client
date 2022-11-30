@@ -20,7 +20,7 @@ jobs:
           submodules: recursive
 
       - name: Use pnpm
-        run: corepack enable && pnpm i
+        run: corepack enable && pnpm i vercel@canary
 
       - name: Pull Vercel Environment Information
         run: pnpm exec vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_SECRETKEY }}
