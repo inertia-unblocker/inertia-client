@@ -1,5 +1,5 @@
-import { createTheme, Theme } from '@nextui-org/react';
-
+import { createTheme, useTheme as useNUITheme } from '@nextui-org/react';
+import { useTheme as useNextTheme } from 'next-themes';
 
 export const Light = createTheme({
 	type: 'light',
@@ -45,3 +45,10 @@ export const Dark = createTheme({
 		}
 	}
 });
+
+export const useTheme = () => {
+	const { theme, setTheme } = useNextTheme();
+	const { isDark } = useNUITheme();
+
+	return { isDark, setTheme };
+};

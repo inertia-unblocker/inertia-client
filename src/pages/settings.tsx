@@ -1,13 +1,18 @@
 import { Setting } from '@components/setting';
+import { useTheme } from '@components/theme';
 
 function Settings() {
+	const { isDark, setTheme } = useTheme();
+
+	const themeOnChange = (dark: boolean) => setTheme(dark ? 'dark' : 'light');
+
 	return (
 		<Setting
-			description="Enable dark mode and keep your eyes from burning"
+			description="Enable dark mode to keep your eyes from burning"
 			name="Dark Mode"
 			setting={{
-				onChange: () => {},
-				init: true
+				onChange: themeOnChange,
+				init: isDark || true
 			}}
 			type='onoff'
 		/>

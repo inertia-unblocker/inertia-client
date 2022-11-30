@@ -29,4 +29,6 @@ export interface SettingProps extends Omit<CardProps, 'children'> {
 	description: string;
 	setting: OptionType | InputType | OnOffType;
 	type: 'onoff' | 'input' | 'option';
+	disabled?: boolean;
+	disabledMessage?: string;
 }

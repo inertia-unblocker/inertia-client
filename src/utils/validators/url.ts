@@ -1,15 +1,10 @@
 import validator from 'validator';
 
-export const URLValidator = (url: string) => {
-	if (!url) return {
-		text: '',
-		value: '',
-	};
+export const URLValidator = (url: string): { error: boolean, message?: string } => {
+	if (!url) return { error: true };
 
-	const isValid = validator.isURL(url, { protocols: ['http', 'https'], require_protocol: true });
+	if (!validator.isURL(url))
+		return { error: true, message: 'Invalid URL' };
 
-	return {
-		text: isValid ? 'Correct URL' : 'Enter a valid URL',
-		value: isValid ? 'success' : 'error',
-	};
+	return { error: false };
 };

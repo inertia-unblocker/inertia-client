@@ -33,6 +33,7 @@ rules:
   no-constant-condition: off
   no-self-assign: off
   no-empty: off
+  no-case-declarations: off
 
   react/jsx-sort-props:
     - warn

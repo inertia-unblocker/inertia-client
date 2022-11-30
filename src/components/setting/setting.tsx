@@ -1,8 +1,17 @@
-import { Card, Text } from '@nextui-org/react';
+import { Card, Radio, Text, Tooltip } from '@nextui-org/react';
 import { OnOffType, SettingProps } from '@props';
 
+interface RawSettingProps {
+	disabled: boolean;
+	type: 'onoff' | 'input' | 'options';
+}
 
-export function Setting({ name, description, setting, type, ...props }: SettingProps) {
+
+export function Setting({ name, description, setting: rsetting, type, disabled, disabledMessage, ...props }: SettingProps) {
+	if (disabled == undefined) disabled = false;
+	if (disabledMessage == undefined) disabledMessage = '';
+	if (disabledMessage && !disabled) throw new Error('disabledMessage is set but disabled is not set to true');
+
 	return (
 		<Card css={{
 			margin: '1rem 2rem 0 2rem',
@@ -13,7 +22,7 @@ export function Setting({ name, description, setting, type, ...props }: SettingP
 			flexWrap: 'nowrap',
 			alignItems: 'center'
 		}} {...props}>
-			<Text css={{ marginLeft: '1.75rem'  }} b>{name}</Text>
+			<Text css={{ marginLeft: '1.75rem' }} b>{name}</Text>
 			<div style={{
 				position: 'absolute',
 				marginLeft: '11rem',
@@ -29,19 +38,28 @@ export function Setting({ name, description, setting, type, ...props }: SettingP
 				marginLeft: 'auto',
 				marginRight: '1.75rem',
 			}}>
-				{(() => {
-					switch (type) {
-						case 'onoff':
-							setting = setting as OnOffType;
-							return (
-								<>
-									foo
-								</>
-							);
-						default:
-							return <>bar</>;
-					}
-				})()}
+				<Tooltip content={disabledMessage}>
+					{(() => {
+						switch (type) {
+							case 'onoff':
+								const setting = rsetting as OnOffType;
+								return (
+									<Radio.Group
+										defaultValue={setting.init.toString()}
+										isDisabled={disabled}
+										onChange={(value) => setting.onChange(value === 'true')}
+										orientation='horizontal'
+										size='sm'
+									>
+										<Radio value='true'>On</Radio>
+										<Radio value='false'>Off</Radio>
+									</Radio.Group>
+								);
+							default:
+								return <>Error: invalid setting type</>;
+						}
+					})()}
+				</Tooltip>
 			</div>
 		</Card>
 	);
