@@ -21,6 +21,7 @@ export interface OptionType {
 	options: {
 		label: string;
 		value: string;
+		disabled?: boolean;
 	}[];
 }
 

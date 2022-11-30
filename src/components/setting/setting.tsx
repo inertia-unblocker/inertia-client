@@ -42,14 +42,14 @@ export function Setting({ name, description, setting, type, disabled, disabledMe
 				flexWrap: 'nowrap',
 				alignItems: 'center'
 			}}>
-				<div style={{ borderRight: '1px solid gray', height: '1.25rem' }}></div>
-				<Text css={{ marginLeft: '.5rem' }} weight='thin'>{description}</Text>
+				<div style={{ borderRight: '1px solid gray', height: '2rem' }}></div>
+				<Text css={{ marginLeft: '.75rem' }} weight='thin'>{description}</Text>
 			</div>
 			<div style={{
 				marginLeft: 'auto',
 				marginRight: '1.75rem',
 			}}>
-				<Tooltip content={disabledMessage}>
+				<Tooltip content={disabledMessage} css={{ textAlign: 'center', width: '15rem' }}>
 					{(() => {
 						switch (type) {
 							case 'onoff':
@@ -90,7 +90,7 @@ export function Setting({ name, description, setting, type, disabled, disabledMe
 										size='sm'
 									>
 										{optionSetting.options.map((option, index) => (
-											<Radio key={index} value={option.value}>{option.label}</Radio>
+											<Radio key={index} disabled={option.disabled} value={option.value}>{option.label}</Radio>
 										))}
 									</Radio.Group>
 								);

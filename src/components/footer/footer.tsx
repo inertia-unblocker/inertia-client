@@ -25,7 +25,7 @@ export function Footer() {
 			</div>
 			<div style={{ position: 'absolute', bottom: '0', right: '0', marginBottom: '1.5rem', marginRight: '2rem', display: 'inline-block' }}>
 				<nextUI.Text>
-					&copy;{new Date().getFullYear()}&nbsp;&nbsp;Inertia Unblocker
+					&copy;{new Date().getFullYear()}&nbsp;&nbsp;Inertia Development Team
 				</nextUI.Text>
 			</div>
 		</div>

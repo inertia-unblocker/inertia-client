@@ -8,7 +8,7 @@ import Head from 'next/head';
 
 import { client, firefox } from '@utils/checks';
 import { Dark as DarkTheme, Light as LightTheme } from '@components/theme';
-import { ProxyConfig } from '@utils/proxy';
+import { useProxyConfig } from '@utils/proxy';
 
 import type { HomeProps } from '@props';
 import type { NextPage } from 'next';
@@ -16,27 +16,7 @@ import type { NextPage } from 'next';
 
 export const Providers: NextPage<HomeProps> = ({ children, cookies, session, host }: HomeProps) => {
 	const [_cookies, _setCookie, removeCookie] = useCookies();
-
-	if (!ProxyConfig.get()) {
-
-		const RemoveAllCookies = () => {
-			const [cookie] = useCookies();
-
-			for (const name in cookie)
-				removeCookie(name);
-
-			if (Object.keys(cookie).length > 0) {
-				if (client) window.location.reload();
-				RemoveAllCookies();
-			}
-		};
-
-		RemoveAllCookies();
-		ProxyConfig.set({
-			location: firefox ? 'external' : 'internal',
-			external: firefox ? 'alloy' : 'ultraviolet'
-		});
-	}
+	useProxyConfig();
 
 	// useEffect(() => {
 	// 	const blackBox = document.getElementById('blackbox');

@@ -31,7 +31,7 @@ export function Navbar({ ...props }: NavbarProps) {
 
 	return (
 		<>
-			<NextUINavbar css={{marginBottom: '2rem'}} variant={'floating'} isBordered {...props}>
+			<NextUINavbar css={{ marginBottom: '2rem' }} variant={'floating'} isBordered {...props}>
 				<NextUINavbar.Brand>
 					<Link href='/'>
 						<div style={{ marginRight: '1rem' }}>
