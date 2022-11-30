@@ -19,7 +19,8 @@ jobs:
           ref: main
           submodules: recursive
 
-      - name: npm i -g vercel@canary
+      - name: Install Vercel CLI
+        run: npm i -g vercel@canary
 
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_SECRETKEY }}
