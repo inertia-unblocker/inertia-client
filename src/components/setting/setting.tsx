@@ -57,7 +57,7 @@ export function Setting({ name, description, setting, type, disabled, disabledMe
 									<Radio.Group
 										defaultValue={onoffSetting.init.toString()}
 										isDisabled={disabled}
-										onChange={(value) => onoffSetting.onChange(value === 'true')}
+										onChange={(v) => onoffSetting.onChange(v === 'true')}
 										orientation='horizontal'
 										size='sm'
 									>
@@ -79,6 +79,20 @@ export function Setting({ name, description, setting, type, disabled, disabledMe
 										value={value}
 										bordered
 									/>
+								);
+							case 'option':
+								return (
+									<Radio.Group
+										defaultValue={optionSetting.init}
+										isDisabled={disabled}
+										onChange={optionSetting.onChange}
+										orientation='horizontal'
+										size='sm'
+									>
+										{optionSetting.options.map((option, index) => (
+											<Radio key={index} value={option.value}>{option.label}</Radio>
+										))}
+									</Radio.Group>
 								);
 							default:
 								return <>Error: invalid setting type</>;
