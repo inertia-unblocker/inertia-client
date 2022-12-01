@@ -42,5 +42,5 @@ export const useProxyConfig = () => {
 		}
 	};
 
-	return new Proxy(cookies.proxy, handler) as ProxyConfigType;
+	return new Proxy(defaultConfig, handler) as ProxyConfigType;
 };
