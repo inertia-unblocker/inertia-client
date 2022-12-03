@@ -9,7 +9,7 @@ import { Link } from '@components/link';
 import { Premium } from '@components/layouts';
 import { WinKey } from '@components/icons';
 
-import styles from '@css/collapse.module.css';
+import styles from '@css/vpn.module.css';
 
 
 function VPN({ guides }: any) {
@@ -17,9 +17,9 @@ function VPN({ guides }: any) {
 	const MdxComponents = {
 		Key: styled('kbd'),
 		WinKey,
-		a: (props: any) => <Link css={{ display: 'inline' }} {...props} />,
+		a: (props: any) => <Link css={{ display: 'inline !important' }} {...props} />,
 		p: (props: any) => <Text {...props} />,
-		li: (props: any) => <li class='troubleshooting' style={{ margin: '0 .5rem', lineHeight: '1.5rem' }} {...props} />,
+		li: (props: any) => <li className={styles.troubleshooting} style={{ margin: '0 .5rem', lineHeight: '1.5rem' }} {...props} />,
 		ul: (props: any) => <ul style={{ listStyle: 'circle' }} {...props} />,
 		code: (props: any) => <code style={{ userSelect: 'text', whiteSpace: 'nowrap', lineHeight: '.5rem' }} {...props} />
 	};

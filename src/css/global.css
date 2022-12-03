@@ -28,7 +28,3 @@ html {
 * {
 	user-select: none;
 }
-
-ul>li.troubleshooting:not(:last-child) {
-	margin-bottom: 2rem !important;
-}

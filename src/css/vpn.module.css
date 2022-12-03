@@ -2,3 +2,7 @@
 	background: transparent !important;
 	border: 1px solid #252525 !important;
 }
+
+ul>li.troubleshooting:not(:last-child) {
+	margin-bottom: 2rem !important;
+}

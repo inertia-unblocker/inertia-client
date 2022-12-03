@@ -1,8 +1,6 @@
 import * as nextUI from '@nextui-org/react';
 
-import React, { createElement, useState } from 'react';
-import { useCookies } from 'react-cookie';
-import { useSession } from 'next-auth/react';
+import React from 'react';
 
 import { Link } from '@components/link';
 import { Premium as PremiumIcon } from '@components/icons';
@@ -47,8 +45,8 @@ export function Premium({ children }: { children: React.ReactNode }) {
 
 	switch (toAuthorize) {
 		case undefined: return <LoadingPage />;
-		case true: return <LockedPage />;
-		case false: return <>{children}</>;
+		case false: return <LockedPage />;
+		case true: return <>{children}</>;
 		default: return <LoadingPage />;
 	}
 }
