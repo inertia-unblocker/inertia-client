@@ -6,11 +6,8 @@ import { useSession } from 'next-auth/react';
 
 import { Link } from '@components/link';
 import { Premium as PremiumIcon } from '@components/icons';
+import { usePremium } from '@utils/premium';
 
-
-const CheckPremium = async () => {
-	return true;
-};
 
 function LockedPage() {
 	return (
@@ -46,19 +43,12 @@ function LoadingPage() {
 }
 
 export function Premium({ children }: { children: React.ReactNode }) {
-	const { status } = useSession();
-	const [state, setState] = useState('loading');
-	const isSet = () => state != 'loading';
+	const toAuthorize = usePremium();
 
-	if (!isSet()) {
-		if (status != 'authenticated') setState('locked');
-		else CheckPremium().then((premium) => setState(premium ? 'unlocked' : 'locked'));
-	}
-
-	switch (state) {
-		case 'loading': return <LoadingPage />;
-		case 'locked': return <LockedPage />;
-		case 'unlocked': return <>{children}</>;
+	switch (toAuthorize) {
+		case undefined: return <LoadingPage />;
+		case true: return <LockedPage />;
+		case false: return <>{children}</>;
 		default: return <LoadingPage />;
 	}
 }
