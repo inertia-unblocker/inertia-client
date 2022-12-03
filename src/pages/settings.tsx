@@ -39,10 +39,10 @@ function Settings() {
 				setting={{
 					onChange: onLocationChange,
 					options: [
-						{ label: 'Internal', value: 'internal', disabled: firefox },
+						{ label: 'Internal', value: 'internal', disabled: firefox, info: 'Firefox does not support this option' },
 						{ label: 'External', value: 'external' }
 					],
-					init: firefox ? 'external' : 'internal'
+					init: proxyConfig.location ? 'external' : 'internal'
 				}}
 				type='option'
 			/>
@@ -50,7 +50,11 @@ function Settings() {
 			<Setting
 				description='The URL of the proxy'
 				disabled={proxyConfig.location !== 'external'}
-				disabledMessage={proxyConfig.location === 'internal' ? 'Set "Proxy Location" to external to change this' : ''}
+				info={
+					proxyConfig.location === 'internal'
+						? 'Set "Proxy Location" to external to change this'
+						: ''
+				}
 				name='External Proxy URL'
 				setting={{
 					onChange: onURLChange,
@@ -63,13 +67,17 @@ function Settings() {
 			<Setting
 				description='The type of proxy you are using'
 				disabled={proxyConfig.location !== 'external'}
-				disabledMessage={proxyConfig.location === 'internal' ? 'Set "Proxy Location" to external to change this' : ''}
+				info={
+					proxyConfig.location === 'internal'
+						? 'Set "Proxy Location" to external to change this'
+						: ''
+				}
 				name='External Proxy Type'
 				setting={{
 					onChange: onExternalTypeChange,
 					options: [
 						{ label: 'Alloy', value: 'alloy' },
-						{ label: 'Ultraviolet', value: 'ultraviolet' }
+						{ label: 'Ultraviolet', value: 'ultraviolet', disabled: firefox, info: 'Firefox does not support this option' }
 					],
 					init: proxyConfig.external.type
 				}}

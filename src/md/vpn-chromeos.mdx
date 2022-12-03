@@ -1,0 +1,44 @@
+##### 1. Update your Chromebook
+
+1. Open the Settings app										<br />
+1. Click "About Chrome OS"										<br />
+1. Click "Check for Updates"									<br />
+1. If there are updates, they will download automatically		<br />
+
+##### 2. Enable StrongSwan VPN Support
+
+1. After updating, in the browser, go to `chrome://flags`		<br />
+1. Search for "VPN" and enable the StrongSwan option 			<br />
+1. Click Restart												<br />
+
+##### 3. Setup the VPN
+
+1. Open the Settings app										<br />
+1. Click "Add Connection"										<br />
+1. Click "Add built-in VPN"										<br />
+1. Make the service name "Inertia VPN"							<br />
+1. Make the provider type "IPsec (IKEv2)"**\***					<br />
+1. Make the hostname `%VPN_IP%`									<br />
+1. Make the authentication type "Pre-shared key"				<br />
+1. Put anything (**NOT NOTHING**) in the "Local Identity" field	<br />
+1. Set "Remote Identity" to `%VPN_IP%`							<br />
+1. Set "Pre-shared key" to `%VPN_PSK%`							<br />
+1. Check the "Save identity and password" button				<br />
+1. Click connect												<br />
+
+*If this option doesn't show up, your Chromebook does not 
+support StrongSwan. We may implement a version that supports 
+these older models.										<br /><br />
+
+##### Troubleshooting
+
+- Fails to connect
+
+	Check to make sure you have filled out all of the fields correctly.
+	There may also be a WiFi policy that blocks VPN's. Try on a different
+	network.
+
+- It shows connected, but my IP doesn't change
+
+	WiFi policy again. Don't worry, the built-in ad blocking and tracker
+	blocking will still be doing its thing!

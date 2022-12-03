@@ -31,7 +31,7 @@ export function Navbar({ ...props }: NavbarProps) {
 
 	return (
 		<>
-			<NextUINavbar css={{ marginBottom: '2rem' }} variant={'floating'} isBordered {...props}>
+			<NextUINavbar css={{ marginBottom: '2rem' }} variant='floating' shouldHideOnScroll {...props}>
 				<NextUINavbar.Brand>
 					<Link href='/'>
 						<div style={{ marginRight: '1rem' }}>
@@ -43,7 +43,7 @@ export function Navbar({ ...props }: NavbarProps) {
 					</Link>
 				</NextUINavbar.Brand>
 
-				<NextUINavbar.Content css={{ marginLeft: '-6.3rem' }} variant={'underline-rounded'}>
+				<NextUINavbar.Content activeColor='primary' css={{ marginLeft: '-6.3rem' }} variant='underline-rounded'>
 					<NavbarLink color={'text'} href='/browser' isActive={pathname == '/browser'} underline>Browser</NavbarLink>
 					<NavbarLink color={'text'} href='/vpn' isActive={pathname == '/vpn'} underline>VPN</NavbarLink>
 					<NavbarLink color={'text'} href='/about' isActive={pathname == '/about'} underline>About</NavbarLink>

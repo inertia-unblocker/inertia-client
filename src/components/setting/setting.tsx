@@ -4,10 +4,9 @@ import { Card, FormElement, Input, Radio, Text, Tooltip } from '@nextui-org/reac
 import { InputType, OnOffType, OptionType, SettingProps } from '@props';
 
 
-export function Setting({ name, description, setting, type, disabled, disabledMessage, ...props }: SettingProps) {
+export function Setting({ name, description, setting, type, disabled, info, ...props }: SettingProps) {
 	if (disabled == undefined) disabled = false;
-	if (disabledMessage == undefined) disabledMessage = '';
-	if (disabledMessage && !disabled) throw new Error('disabledMessage is set but disabled is not set to true');
+	if (info == undefined) info = '';
 
 	const onoffSetting = setting as OnOffType;
 	const inputSetting = setting as InputType;
@@ -49,7 +48,7 @@ export function Setting({ name, description, setting, type, disabled, disabledMe
 				marginLeft: 'auto',
 				marginRight: '1.75rem',
 			}}>
-				<Tooltip content={disabledMessage} css={{ textAlign: 'center', width: '15rem' }}>
+				<Tooltip content={info} css={{ textAlign: 'center', width: '15rem' }}>
 					{(() => {
 						switch (type) {
 							case 'onoff':
@@ -90,7 +89,19 @@ export function Setting({ name, description, setting, type, disabled, disabledMe
 										size='sm'
 									>
 										{optionSetting.options.map((option, index) => (
-											<Radio key={index} disabled={option.disabled} value={option.value}>{option.label}</Radio>
+											<Radio key={index} isDisabled={option.disabled} value={option.value}>
+												<Tooltip
+													content={option.info}
+													css={{ textAlign: 'center', width: '15rem' }}
+													placement={
+														index == optionSetting.options.length - 1
+															? 'topEnd'
+															: 'top'
+													}
+												>
+													{option.label}
+												</Tooltip>
+											</Radio>
 										))}
 									</Radio.Group>
 								);

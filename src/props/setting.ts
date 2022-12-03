@@ -22,6 +22,7 @@ export interface OptionType {
 		label: string;
 		value: string;
 		disabled?: boolean;
+		info?: string;
 	}[];
 }
 
@@ -31,5 +32,5 @@ export interface SettingProps extends Omit<CardProps, 'children'> {
 	setting: OptionType | InputType | OnOffType;
 	type: 'onoff' | 'input' | 'option';
 	disabled?: boolean;
-	disabledMessage?: string;
+	info?: string;
 }

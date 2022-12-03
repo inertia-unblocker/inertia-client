@@ -1,0 +1,22 @@
+1. Install the StrongSwan package for your distrobution.										<br />
+	`sudo pacman -S strongswan`																	<br />
+	`sudo apt install strongswan libcharon-extra-plugins`										<br />
+	`sudo dnf install strongswan`																<br />
+	`sudo zypper install strongswan`															<br />
+
+1. To prevent the VPN from turning on at startup, run `sudo systemctl disable strongswan`		<br />
+1. Copy [this file](%IPSEC_CONFIG%) to `/etc/ipsec.conf`										<br />
+1. Copy [this file](%IPSEC_SECRETS%) to `/etc/ipsec.secrets`									<br />
+1. To start the vpn, use `sudo systemctl start strongswan-starter`								<br />
+1. To stop the vpn, use `sudo systemctl stop strongswan-starter`								<br />
+
+##### Troubleshooting
+
+* `Failed to start strongswan-starter.service. Unit strongswan-starter.service not found.`
+
+	Try making sure you have the correct packages installed, or make sure you spelled the start command correctly. If this still
+	doesn't work, try `sudo systemctl start strongswan.service`. **This might not work**.
+
+* My IP doesn't change or my WiFi doesn't work
+
+	Wait a bit, then try again
