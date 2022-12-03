@@ -19,6 +19,9 @@ jobs:
           ref: main
           submodules: recursive
 
+      - name: Copy .env
+        run: echo "${{ secrets.DOTENV }}" | base64 -d > .env
+
       - name: Install Vercel CLI
         run: npm i -g vercel@canary
 
