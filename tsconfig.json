@@ -18,10 +18,24 @@
 		"jsx": "preserve",
 		"incremental": true,
 		"paths": {
-			"@components/*": [ "./src/components/*" ],
-			"@utils/*": [ "./src/utils/*" ],
-			"@props": [ "./src/props" ],
-			"@db": [ "./src/db" ],
+			"@components/*": [
+				"./src/components/*"
+			],
+			"@utils/*": [
+				"./src/utils/*"
+			],
+			"@props": [
+				"./src/props"
+			],
+			"@db": [
+				"./src/db"
+			],
+			"@browser": [
+				"./src/browser"
+			],
+			"@css/*": [
+				"./src/css/*"
+			],
 		},
 		"strict": true
 	},
