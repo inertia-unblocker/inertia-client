@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { Card, Collapse, Divider, styled, Text } from '@nextui-org/react';
+import { Collapse, styled, Text } from '@nextui-org/react';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 
@@ -9,7 +9,7 @@ import { Link } from '@components/link';
 import { Premium } from '@components/layouts';
 import { WinKey } from '@components/icons';
 
-import styles from '@css/vpn.module.css';
+import styles from '@css/md.module.css';
 
 
 function VPN({ guides }: any) {
@@ -19,7 +19,7 @@ function VPN({ guides }: any) {
 		WinKey,
 		a: (props: any) => <Link css={{ display: 'inline !important' }} {...props} />,
 		p: (props: any) => <Text {...props} />,
-		li: (props: any) => <li className={styles.troubleshooting} style={{ margin: '0 .5rem', lineHeight: '1.5rem' }} {...props} />,
+		li: (props: any) => <li className={styles.listitem} style={{ margin: '0 .5rem', lineHeight: '1.5rem' }} {...props} />,
 		ul: (props: any) => <ul style={{ listStyle: 'circle' }} {...props} />,
 		code: (props: any) => <code style={{ userSelect: 'text', whiteSpace: 'nowrap', lineHeight: '.5rem' }} {...props} />
 	};

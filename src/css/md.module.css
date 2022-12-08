@@ -1,0 +1,16 @@
+.collapse {
+	background: transparent !important;
+	border: 1px solid #252525 !important;
+}
+
+li.listitem:not(:last-child):not(ul>li) {
+	margin-bottom: 2rem !important;
+}
+
+li.listitem {
+	margin-left: 1rem !important;
+}
+
+ul.list {
+	list-style: circle !important;
+}
