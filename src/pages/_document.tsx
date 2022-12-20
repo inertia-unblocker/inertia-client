@@ -5,7 +5,9 @@ import Script from 'next/script';
 export default function Document() {
 	return (
 		<Html>
-			<Head />
+			<Head>
+				<link href='/favicon.svg' rel='icon' />
+			</Head>
 			<body>
 				<Main />
 				<NextScript />

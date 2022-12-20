@@ -18,7 +18,7 @@ function VPN({ guides }: any) {
 		Key: styled('kbd'),
 		WinKey,
 		a: (props: any) => <Link css={{ display: 'inline !important' }} {...props} />,
-		p: (props: any) => <Text {...props} />,
+		p: (props: any) => <Text css={{ display: 'inline !important' }} {...props} />,
 		li: (props: any) => <li className={styles.listitem} style={{ margin: '0 .5rem', lineHeight: '1.5rem' }} {...props} />,
 		ul: (props: any) => <ul style={{ listStyle: 'circle' }} {...props} />,
 		code: (props: any) => <code style={{ userSelect: 'text', whiteSpace: 'nowrap', lineHeight: '.5rem' }} {...props} />

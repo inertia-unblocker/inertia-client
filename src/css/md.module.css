@@ -3,7 +3,7 @@
 	border: 1px solid #252525 !important;
 }
 
-li.listitem:not(:last-child):not(ul>li) {
+li.listitem:not(:last-child):not(ol>li) {
 	margin-bottom: 2rem !important;
 }
 

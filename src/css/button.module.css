@@ -1,0 +1,11 @@
+.button:hover {
+	background-color: #282828 !important;
+}
+
+.button {
+	background-color: transparent !important;
+	border: 0;
+	transition: all .3s ease;
+	border-radius: .25rem;
+	display: flex
+}

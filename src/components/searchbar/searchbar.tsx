@@ -10,11 +10,14 @@ import { useRouter } from 'next/router';
 
 export function Searchbar({ ...props }: SearchbarProps) {
 	const config = useProxyConfig();
-	const [browser, useBrowser] = useCookies(['browser']);
+
+	const onSubmit = (e: FormEvent) => {
+		e.preventDefault();
+	};
 
 	return (
 		<nextUI.Card css={{ marginTop: '.25rem', width: '100%' }}>
-			<form id='proxyForm' {...props}>
+			<form id='proxyForm' onSubmit={onSubmit} {...props}>
 				<nextUI.Input css={{ padding: '1.25rem', width: '100%' }} placeholder='Search Google or enter URL' bordered />
 				<nextUI.Input css={{ display: 'none' }} type='submit' />
 			</form>

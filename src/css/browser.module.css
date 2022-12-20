@@ -1,3 +1,11 @@
 .tabTitle {
 	margin-left: .5rem;
+	line-height: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.tabImage {
+	margin-left: .5rem;
 }
