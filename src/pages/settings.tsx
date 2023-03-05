@@ -13,7 +13,6 @@ function Settings() {
 	const { isDark, setTheme } = useTheme();
 	const proxyConfig = useProxyConfig();
 
-
 	const onThemeChange = (dark: boolean) => setTheme(dark ? 'dark' : 'light');
 	const onLocationChange = (location: string) => proxyConfig.location = location as 'internal' | 'external';
 	const onExternalTypeChange = (type: string) => proxyConfig.external.type = type as 'alloy' | 'ultraviolet';

@@ -40,7 +40,7 @@ function LoadingPage() {
 	);
 }
 
-export function Premium({ children }: { children: React.ReactNode }) {
+export function Premium({ children }: { children: React.ReactNode | React.ReactNode[] }) {
 	const toAuthorize = usePremium();
 
 	switch (toAuthorize) {
