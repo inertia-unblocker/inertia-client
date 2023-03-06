@@ -17,7 +17,7 @@ function Changelog({ changelogs }: any) {
 	};
 
 	return (
-		<Card css={{ width: 'calc(100% - 4rem)', margin: '3rem 2rem 0rem' }}>
+		<Card css={{ width: 'calc(100% - 4rem)', margin: '1rem 2rem 0rem' }}>
 			<Card.Header>
 				<Text css={{ userSelect: 'none', margin: 0 }} h2>
 					Changelog

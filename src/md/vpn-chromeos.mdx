@@ -8,7 +8,7 @@
 ##### 2. Enable StrongSwan VPN Support
 
 1. After updating, in the browser, go to `chrome://flags`		<br />
-1. Search for "VPN" and enable the StrongSwan option 			<br />
+1. Search for "VPN" and enable the StrongSwan option* 			<br />
 1. Click Restart												<br />
 
 ##### 3. Setup the VPN
@@ -17,18 +17,19 @@
 1. Click "Add Connection"										<br />
 1. Click "Add built-in VPN"										<br />
 1. Make the service name "Inertia VPN"							<br />
-1. Make the provider type "IPsec (IKEv2)"**\***					<br />
+1. Make the provider type "IPsec (IKEv2)"**						<br />
 1. Make the hostname `%VPN_IP%`									<br />
 1. Make the authentication type "Pre-shared key"				<br />
-1. Put anything (**NOT NOTHING**) in the "Local Identity" field	<br />
+1. Put your device's name in the "Local Identity" field			<br />
 1. Set "Remote Identity" to `%VPN_IP%`							<br />
-1. Set "Pre-shared key" to `%VPN_PSK%`							<br />
+1. Set "Pre-shared key" to the corresponding devices' PSK		<br />
 1. Check the "Save identity and password" button				<br />
 1. Click connect												<br />
 
-*If this option doesn't show up, your Chromebook does not
-support StrongSwan. We may implement a version that supports
-these older models.										<br /><br />
+*If this doesn't show up, then StrongSwan is enabled-by-default
+on your Chromebook. You can skip this step.						<br />
+**If this option doesn't show up, your Chromebook is an older
+model that does not support StrongSwan.								<br /><br />
 
 ##### Troubleshooting
 
@@ -40,5 +41,6 @@ these older models.										<br /><br />
 
 - It shows connected, but my IP doesn't change					<br />
 
-	WiFi policy again. Don't worry, the built-in ad blocking and tracker
-	blocking will still be doing its thing!
+	There may be a WiFi policy set by your administrator that
+	partially blocks VPNs. Don't worry, the ad and tracker-blocking
+	will still work.												<br /><br />

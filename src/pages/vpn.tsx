@@ -6,6 +6,7 @@ import { HiOutlineInformationCircle } from 'react-icons/hi';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 
+import { Button } from '@components/button';
 import { Link } from '@components/link';
 import { Premium } from '@components/layouts';
 import { WinKey } from '@components/icons';
@@ -16,7 +17,6 @@ import styles from '@css/md.module.css';
 interface Device {
 	name: string;
 	id: string;
-	awaitingRefresh: boolean;
 	psk: string;
 }
 
@@ -37,12 +37,14 @@ function VPN({ guides }: any) {
 			name: 'test',
 			psk: 'test',
 			id: 'test',
-			awaitingRefresh: true
 		}, {
 			name: 'test',
 			psk: 'test',
 			id: 'test',
-			awaitingRefresh: false
+		}, {
+			name: 'test',
+			psk: 'test',
+			id: 'test',
 		}];
 	};
 
@@ -52,20 +54,24 @@ function VPN({ guides }: any) {
 
 	return (
 		<Premium>
-			<Card css={{ margin: '0 2rem', width: 'calc(100% - 4rem)' }}>
+			<Card css={{ margin: '1rem 2rem 0rem', width: 'calc(100% - 4rem)' }}>
 				<Card.Header>
 					<Text css={{ margin: '0' }} h3>&nbsp;&nbsp;1.&emsp;Add Devices</Text>
 				</Card.Header>
 			</Card>
 			<div style={{
 				display: 'flex',
+				flexWrap: 'wrap',
+				justifyContent: 'space-evenly'
 			}}>
 				{
-					getAddedDevices().map(({ name, psk, awaitingRefresh }, i) => {
+					getAddedDevices().map(({ name, psk }, i) => {
 						return (
-							<>
-								<Card key={i} css={{
-									margin: '1rem 2rem 0rem',
+							<div key={i} style={{
+								display: 'flex',
+							}}>
+								<Card css={{
+									margin: '1rem 0rem 0rem 0rem',
 									width: '21rem',
 									padding: '.75rem 1rem',
 									display: 'flex',
@@ -77,26 +83,51 @@ function VPN({ guides }: any) {
 									</div>
 									<div style={{ display: 'flex' }}>
 										<Text css={{ flex: 1, width: 'fit-content' }}>PSK: {psk}</Text>
-										{awaitingRefresh ? (
-											<div style={{
-												top: '1rem',
-												left: '.6rem',
-												position: 'relative',
-											}}>
-												<Tooltip content='Your changes will take effect at 11:59pm EST'>
-													<HiOutlineInformationCircle size='1rem' />
-												</Tooltip>
-											</div>
-										) : (
-											<></>
-										)}
 									</div>
 								</Card>
-							</>
+
+								{
+									i == getAddedDevices().length - 1 ? (
+										<Button style={{
+											width: '1.25rem',
+											height: '1.25rem',
+											justifyContent: 'center',
+											alignItems: 'center',
+											marginTop: '2.95rem',
+											marginLeft: '.5rem',
+										}} type='transparent'>
+											<Text css={{ lineHeight: 'normal', marginBottom: '.25rem' }} size='$md'>+</Text>
+										</Button>
+									) : null
+								}
+							</div>
 						);
 					})
 				}
 			</div>
+			<Card css={{ margin: '4rem 2rem 0rem', width: 'calc(100% - 4rem)' }}>
+				<Card.Header>
+					<Text css={{ margin: '0' }} h3>&nbsp;&nbsp;2.&emsp;Connect</Text>
+				</Card.Header>
+			</Card>
+
+			<Collapse.Group css={{ margin: '1rem 2rem' }} splitted>
+				<Collapse className={styles.collapse} title='Windows'>
+					<MDXRemote {...guides.windows} components={MdxComponents} />
+				</Collapse>
+
+				<Collapse className={styles.collapse} title='Linux'>
+					<MDXRemote {...guides.linux} components={MdxComponents} />
+				</Collapse>
+
+				<Collapse className={styles.collapse} title='Chromebook'>
+					<MDXRemote {...guides.chromeos} components={MdxComponents} />
+				</Collapse>
+
+				<Collapse className={styles.collapse} title='Android'>
+					<MDXRemote {...guides.android} components={MdxComponents} />
+				</Collapse>
+			</Collapse.Group>
 		</Premium>
 	);
 }
