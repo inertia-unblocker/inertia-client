@@ -15,7 +15,7 @@ export function Navbar({ ...props }: NavbarProps) {
 	const [loginModalVisible, LoginModal] = UseLoginModal();
 
 	const { pathname } = useRouter();
-	const { data: session } = useSession() as { data: Session };
+	const { data: session, status } = useSession();
 
 	const actionHandler = (key: Key) => {
 		switch (key) {
@@ -51,7 +51,7 @@ export function Navbar({ ...props }: NavbarProps) {
 				</NextUINavbar.Content>
 
 				<NextUINavbar.Content>
-					{session ? (
+					{status == 'authenticated' ? (
 						<NextUINavbar.Item>
 							<Dropdown placement='bottom-right'>
 								<Dropdown.Trigger>

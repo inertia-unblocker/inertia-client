@@ -27,8 +27,8 @@
 			"@props": [
 				"./src/props"
 			],
-			"@db": [
-				"./src/db"
+			"@db/*": [
+				"./src/db/*"
 			],
 			"@browser": [
 				"./src/browser"

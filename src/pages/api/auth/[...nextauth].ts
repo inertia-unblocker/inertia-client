@@ -4,7 +4,7 @@ import DiscordProvider from 'next-auth/providers/discord';
 import GithubProvider from 'next-auth/providers/github';
 
 import { PrismaAdapter as Adapter } from '@next-auth/prisma-adapter';
-import { prisma } from '@db';
+import prisma from '@db/client';
 
 
 export default NextAuth({
@@ -19,4 +19,12 @@ export default NextAuth({
 			clientSecret: process.env.DISCORD_SECRET as string,
 		}),
 	],
+	callbacks: {
+		async session({ session, token, user }) {
+			session.user = user;
+			session.token = token;
+
+			return session;
+		}
+	}
 });

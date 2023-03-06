@@ -1,5 +1,6 @@
+import { Button, Modal, Text } from '@nextui-org/react';
+import { Discord, Github } from '@components/icons';
 import { Dispatch, SetStateAction, useState } from 'react';
-import { Link, Modal, Text } from '@nextui-org/react';
 import { signIn } from 'next-auth/react';
 
 
@@ -20,13 +21,29 @@ export function UseLoginModal(): [Dispatch<SetStateAction<boolean>>, () => JSX.E
 				</Modal.Header>
 
 				<Modal.Body>
-					<Text>
-						Login
-						<Link onClick={(e: any) => {
-							e.preventDefault();
+					<Button icon={<Discord />} onClick={
+						(e) => {
 							signIn('discord');
-						}}>lgn</Link>
-					</Text>
+						}
+					} style={{
+						backgroundColor: '#586aea',
+					}}>
+						<Text b>
+							Login with Discord
+						</Text>
+					</Button>
+					<Button icon={<Github />} onClick={
+						(e) => {
+							signIn('github');
+						}
+					} style={{
+						backgroundColor: '#171515',
+						marginBottom: '.75rem'
+					}}>
+						<Text b>
+							Login with Github
+						</Text>
+					</Button>
 				</Modal.Body>
 			</Modal>
 		);
